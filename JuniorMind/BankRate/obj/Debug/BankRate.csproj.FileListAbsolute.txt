@@ -1,0 +1,6 @@
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\BankRate\bin\Debug\BankRate.dll
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\BankRate\bin\Debug\BankRate.pdb
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\BankRate\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\BankRate\obj\Debug\BankRate.csprojResolveAssemblyReference.cache
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\BankRate\obj\Debug\BankRate.dll
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\BankRate\obj\Debug\BankRate.pdb
