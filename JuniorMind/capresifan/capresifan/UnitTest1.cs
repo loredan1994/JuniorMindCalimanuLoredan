@@ -10,15 +10,16 @@ namespace Calculation
         public void Kilogramedefan()
         {
 
-            float primatestare = Calculintermediar(20, 2, 4, 5, 8);
-            Assert.AreEqual(1, primatestare);
+            float primatestare = Calculintermediar(2, 4, 3, 3, 4);
+            Assert.AreEqual(2, primatestare);
         }
-        float Calculintermediar(float x, float q, float y, float w, float z)
+        float Calculintermediar(int x, int q, int y, int w, float z)
         {
-            float numardezile = x / q;
-            float numardecapre = y / w;
-            float calculintermediar = numardezile * numardecapre;
-            return calculintermediar / z;
+            float numarator = x * z * w;
+            float numitor = q * y ;
+            float finalfan = numarator / numitor;
+            return finalfan ;
+            
         }
 
     }
