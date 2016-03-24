@@ -15,13 +15,13 @@ namespace problemasitarheologic
         decimal Arieminima(int xa, int xb, int xc, int ya, int yb, int yc)
 
         {
-            decimal ab = ((xb - xa) ^ 2 + (yb - ya) ^ 2) ^ 1 / 2;
-            decimal ac = ((xc - xa) ^ 2 + (yc - ya) ^ 2) ^ 1 / 2;
-            decimal bc = ((xc - xb) ^ 2 + (yc - yb) ^ 2) ^ 1 / 2;
-            decimal p = (ab + ac + bc) / 2;
-            decimal ArieHeronpartial = (p * ((p - ab) * (p - ac) * (p - bc)));
-            decimal ArieHeron = ((ArieHeronpartial))^1/2;
-            return ArieHeron;
+            int ab = ((xb - xa) ^ 2 + (yb - ya) ^ 2) ^ 1 / 2;
+            int ac = ((xc - xa) ^ 2 + (yc - ya) ^ 2) ^ 1 / 2;
+            int bc = ((xc - xb) ^ 2 + (yc - yb) ^ 2) ^ 1 / 2;
+            int p = (ab + ac + bc) / 2;
+            decimal ArieHeronpartial = 1 / 2 ^ (p * ((p - ab) * (p - ac) * (p - bc)));
+            return ArieHeronpartial;
+           
 
         }
      
