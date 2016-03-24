@@ -1,0 +1,6 @@
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\capresifan\capresifan\bin\Debug\capresifan.dll
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\capresifan\capresifan\bin\Debug\capresifan.pdb
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\capresifan\capresifan\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\capresifan\capresifan\obj\Debug\capresifan.csprojResolveAssemblyReference.cache
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\capresifan\capresifan\obj\Debug\capresifan.dll
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\capresifan\capresifan\obj\Debug\capresifan.pdb
