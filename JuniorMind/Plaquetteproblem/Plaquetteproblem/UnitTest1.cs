@@ -12,7 +12,7 @@ namespace Plaquetteproblem
             Assert.AreEqual(4, findPlaquette(6, 6, 4));
         }
         [TestMethod]
-        public void PavementSecondTest()
+        public void PlaquetteSecondTest()
         {
             Assert.AreEqual(16, findPlaquette(8, 8, 2));
         }
