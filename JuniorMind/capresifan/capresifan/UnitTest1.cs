@@ -7,18 +7,18 @@ namespace Calculation
     {
 
         [TestMethod]
-        public void Kilogramedefan()
+        public void KilogramsofHay()
         {
 
-            float primatestare = Calculintermediar(2, 4, 3, 3, 4);
-            Assert.AreEqual(2, primatestare);
+            float FirstTest = IntermediaryCalculus(2, 4, 3, 3, 4);
+            Assert.AreEqual(2, FirstTest);
         }
-        float Calculintermediar(int x, int q, int y, int w, float z)
+        float IntermediaryCalculus(int xdays, int qgoats, int ygoats, int wdays, float zhay)
         {
-            float numarator = x * z * w;
-            float numitor = q * y ;
-            float finalfan = numarator / numitor;
-            return finalfan ;
+            float numerator = xdays * zhay * wdays;
+            float denominator = qgoats * ygoats ;
+            float FinalHay = numerator / denominator;
+            return FinalHay ;
             
         }
 
