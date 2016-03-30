@@ -2,22 +2,22 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace ProblemaCuTrenuri
+namespace TrainProblemSolution
 {
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
-        public void Verificaredistanta()
+        public void DistanceCheck()
         {
-            float primatestare = Calatorie(25);
-            Assert.AreEqual(12,5,primatestare);
+            float FirstTest = Travel(25);
+            Assert.AreEqual(12,5,FirstTest);
         }
-        public float Calatorie(float distanta)
+        public float Travel(float distance)
         {
 
 
-            return distanta / 2;
+            return distance / 2;
         }
     }
 }

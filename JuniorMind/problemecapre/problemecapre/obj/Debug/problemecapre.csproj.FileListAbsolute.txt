@@ -4,3 +4,9 @@ C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\problemecap
 C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\problemecapre\problemecapre\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\problemecapre\problemecapre\obj\Debug\problemecapre.dll
 C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\problemecapre\problemecapre\obj\Debug\problemecapre.pdb
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\problemecapre\problemecapre\bin\Debug\problemecapre.dll
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\problemecapre\problemecapre\bin\Debug\problemecapre.pdb
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\problemecapre\problemecapre\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\problemecapre\problemecapre\obj\Debug\problemecapre.csprojResolveAssemblyReference.cache
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\problemecapre\problemecapre\obj\Debug\problemecapre.dll
+C:\Users\Calimanu Loredan\Documents\GitHub\JuniorMindCalimanuLoredan\JuniorMind\problemecapre\problemecapre\obj\Debug\problemecapre.pdb
