@@ -1,26 +1,26 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace problemasitarheologic
+namespace ArheologicalSite
 {
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
-        public void Metoda1()
+        public void Method1()
         {
-            double primatestare = Arieminima(3, 1, 3, 1, 3, 1);
-            Assert.AreEqual(18.000002, primatestare);
+            double FirstTest = Heronminimum(6, 2, 8, 2, 9, 2);
+            Assert.AreEqual(7, FirstTest);
         }
-        double Arieminima(int xa, int xb, int xc, int ya, int yb, int yc)
+        double Heronminimum(double xa, double xb, double xc, double ya, double yb, double yc)
 
         {
-            int ab = ((xb - xa) ^ 2 + (yb - ya) ^ 2) ^ 1 / 2;
-            int ac = ((xc - xa) ^ 2 + (yc - ya) ^ 2) ^ 1 / 2;
-            int bc = ((xc - xb) ^ 2 + (yc - yb) ^ 2) ^ 1 / 2;
-            int p = (ab + ac + bc) / 2;
-            double ArieHeronpartial = Math.Sqrt((p * ((p - ab) * (p - ac) * (p - bc))));
-            return ArieHeronpartial;
+            double ab = Math.Sqrt(Math.Pow((xb - xa),2) + Math.Pow((yb - ya),2));
+            double ac = Math.Sqrt(Math.Pow((xc - xa),2) + Math.Pow((yc - ya),2));
+            double bc = Math.Sqrt(Math.Pow((xc - xb),2) + Math.Pow((yc - yb),2));
+            double p = (ab + ac + bc) / 2;
+            double HeronSurface = Math.Sqrt((p * ((p - ab) * (p - ac) * (p - bc))));
+            return HeronSurface;
            
 
         }
