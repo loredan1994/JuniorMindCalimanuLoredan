@@ -1,21 +1,22 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Ciupercilealbe
+namespace Mushrooms
 {
     [TestClass]
-    public class CiupercileRosii
+    public class RedMushroomss
     {
         [TestMethod]
-        public void CiuperciTest()
+        public void MushroomsTest()
         {
-            int primatestare = CiupercileRosi(4,8) ;
-            Assert.AreEqual(32, primatestare);
+            int Firsttest = RedMushrooms(1,10) ;
+            Assert.AreEqual(5, Firsttest);
         }
-        int CiupercileRosi(int multiplicitatea, int numarciupercialbe)
+        int RedMushrooms(int multiplicity, int totalnumberofmushrooms)
         {
-            int numarciupercirosii = multiplicitatea * numarciupercialbe ;
-            return numarciupercirosii;
+            int whitemushrooms = totalnumberofmushrooms / (multiplicity + 1) ;
+            int redmushrooms = whitemushrooms * multiplicity;
+            return redmushrooms ;
         }
 
     }
