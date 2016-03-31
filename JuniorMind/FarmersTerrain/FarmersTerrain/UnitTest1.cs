@@ -9,11 +9,11 @@ namespace FarmersTerrain
         [TestMethod]
         public void InitialTerrain()
         {
-            Assert.AreEqual(770, ComputationOfTheSquareSurface(770));        }
-        int ComputationOfTheSquareSurface(int length)
+            Assert.AreEqual(588, ComputationOfTheSquareSurface(770,800000));        }
+        int ComputationOfTheSquareSurface(int lengthbougth ,int totalsurfaceaterbuying)
         {
-           double delta =Math.Sqrt(Math.Pow(230,2)+4*770000));
-            return length = (int)(-230 + delta) / 2;
+           double delta =Math.Sqrt(Math.Pow(lengthbougth,2)+4*totalsurfaceaterbuying);
+            return  (int)(-lengthbougth + delta) / 2;
         }
     }
 }
