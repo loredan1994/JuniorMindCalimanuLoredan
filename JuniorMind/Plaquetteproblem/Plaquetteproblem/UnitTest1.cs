@@ -14,7 +14,7 @@ namespace Plaquetteproblem
         [TestMethod]
         public void PlaquetteSecondTest()
         {
-            Assert.AreEqual(16, findPlaquette(8, 8, 2));
+            Assert.AreEqual(12, findPlaquette(8, 6, 2));
         }
         public double findPlaquette(int mlength, int nlength, int acubic)
         {
