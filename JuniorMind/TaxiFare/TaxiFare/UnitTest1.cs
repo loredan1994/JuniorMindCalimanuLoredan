@@ -18,8 +18,13 @@ namespace TaxiFare
         }
         decimal CalculateTaxiFare(int distanceInKm, int hour)
         {
-            decimal pricePerKilometer = distanceInKm >20 ? 8:5;
-            return pricePerKilometer*distanceInKm;
+            decimal pricePerKilometer = IsMediumDistance(distanceInKm);
+            return pricePerKilometer * distanceInKm;
+        }
+
+        private static decimal IsMediumDistance(int distanceInKm)
+        {
+            return distanceInKm > 20 ? 8 : 5;
         }
     }
 }
