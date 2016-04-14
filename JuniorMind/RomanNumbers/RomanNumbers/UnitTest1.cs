@@ -9,8 +9,14 @@ namespace RomanNumbers
         [TestMethod]
         public void TestMethod1()
         {
-            string firsttest = IntToRoman(10);
-            Assert.AreEqual(X, firsttest);
+           string firsttest = IntToRoman(10);
+            Assert.AreEqual("X", firsttest) ;
+        }
+        [TestMethod]
+        public void TestMethod2()
+        {
+            string firsttest1 = IntToRoman(15);
+            Assert.AreEqual("XV", firsttest1);
         }
         public string IntToRoman(int num)
         {
