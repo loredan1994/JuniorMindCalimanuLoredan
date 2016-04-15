@@ -23,7 +23,7 @@ namespace EvenMelon
             if ((melon > 2) && (melon % 2 == 0))
             return "YES it is even";
 
-            else return "NO it's odd";
+             return "NO it's odd";
         }
     }
 }
