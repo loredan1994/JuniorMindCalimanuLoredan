@@ -20,6 +20,11 @@ namespace Debtproblem
         {
             Assert.AreEqual(94.5, CalculateSumOfDebt(90, 20));
         }
+        [TestMethod]
+        public void TestMethod3()
+        {
+            Assert.AreEqual(100.2, CalculateSumOfDebt(100, 8));
+        }
         public double CalculateSumOfDebt(int rental, int daystopay)
         {
             daysofpenality(rental);
