@@ -6,6 +6,10 @@ namespace Debtproblem
     [TestClass]
     public class UnitTest1
     {
+        private double dayofpenalityfirstcase;
+        private double daysofpenalitymiddlecase;
+        private double daysofpenalitylongcase;
+
         [TestMethod]
         public void TestMethod1()
         {
@@ -16,30 +20,34 @@ namespace Debtproblem
         {
             Assert.AreEqual(94.5, CalculateSumOfDebt(90, 20));
         }
-        public double CalculateSumOfDebt(int rental, int Daystopay)
+        public double CalculateSumOfDebt(int rental, int daystopay)
         {
-            double daysofpenality, daysofpenality2, daysofpenality3;
-            PenalityDaysComputation(rental, out daysofpenality, out daysofpenality2, out daysofpenality3);
-            double SumOfDebt, SumOfDebt2, SumOfDebt3;
-            DebtsComputation(rental, daysofpenality, daysofpenality2, daysofpenality3, out SumOfDebt, out SumOfDebt2, out SumOfDebt3);
-            if ((Daystopay >= 1) && (Daystopay <= 10)) return SumOfDebt;
-            if ((Daystopay >= 11) && (Daystopay <= 30)) return SumOfDebt2;
-            if ((Daystopay >= 31) && (Daystopay <= 40)) return SumOfDebt3;
-            else return 0;
+            daysofpenality(rental);
+            double sumOfDebt, sumOfDebt2, sumOfDebt3;
+            Calculationoftotaldebt(rental, out sumOfDebt, out sumOfDebt2, out sumOfDebt3);
+
+            if ((daystopay >= 1) && (daystopay <= 10)) return sumOfDebt;
+            if ((daystopay >= 11) && (daystopay <= 30)) return sumOfDebt2;
+            if ((daystopay >= 31) && (daystopay <= 40)) return sumOfDebt3;
+            return 0;
         }
 
-        private static void DebtsComputation(int rental, double daysofpenality, double daysofpenality2, double daysofpenality3, out double SumOfDebt, out double SumOfDebt2, out double SumOfDebt3)
+        private void Calculationoftotaldebt(int rental, out double sumOfDebt, out double sumOfDebt2, out double sumOfDebt3)
         {
-            SumOfDebt = rental + daysofpenality;
-            SumOfDebt2 = rental + daysofpenality2;
-            SumOfDebt3 = rental + daysofpenality3;
+            sumOfDebt = rental + dayofpenalityfirstcase;
+            sumOfDebt2 = rental + daysofpenalitymiddlecase;
+            sumOfDebt3 = rental + daysofpenalitylongcase;
         }
 
-        private static void PenalityDaysComputation(int rental, out double daysofpenality, out double daysofpenality2, out double daysofpenality3)
+        private void daysofpenality(int rental)
         {
-            daysofpenality = 0.02 * rental;
-            daysofpenality2 = 0.05 * rental;
-            daysofpenality3 = 0.1 * rental;
+            double[] prices = { 0.002, 0.05, 0.1 };
+            dayofpenalityfirstcase = prices[0] * rental;
+            daysofpenalitymiddlecase = prices[1] * rental;
+            daysofpenalitylongcase = prices[2] * rental;
         }
+
+
+
     }
 }
