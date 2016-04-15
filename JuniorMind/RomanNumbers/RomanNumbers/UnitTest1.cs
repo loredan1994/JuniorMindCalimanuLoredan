@@ -18,6 +18,18 @@ namespace RomanNumbers
             string firsttest1 = IntToRoman(15);
             Assert.AreEqual("XV", firsttest1);
         }
+        [TestMethod]
+        public void secondtest()
+        {
+            string secondtest = IntToRoman(100);
+            Assert.AreEqual("C", secondtest);
+        }
+        [TestMethod]
+        public void thirdtest()
+        {
+            string secondtest = IntToRoman(1100);
+            Assert.AreEqual("MC", secondtest);
+        }
         public string IntToRoman(int num)
         {
             string[] thou = { "", "M", "MM", "MMM" };
