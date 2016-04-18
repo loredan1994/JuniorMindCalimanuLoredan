@@ -25,26 +25,14 @@ namespace Debtproblem
         }
         public double CalculateSumOfDebt(int rental, int daysToPay)
         {
-            double penaltyFirstDays, penaltyMiddleDays, penaltyLongDays;
-            PenalityComputationForDifferentDays(rental, out penaltyFirstDays, out penaltyMiddleDays, out penaltyLongDays);
-            
-            if ((daysToPay >= 1) && (daysToPay <= 10))
-                return rental + penaltyFirstDays;
-            if ((daysToPay >= 11) && (daysToPay <= 30))
-                return rental + penaltyMiddleDays;
-
-            return rental + penaltyLongDays;
-            
-        }
-
-      
-        private static void PenalityComputationForDifferentDays(int rental, out double penaltyFirstDays, out double penaltyMiddleDays, out double penaltyLongDays)
-        {
-           
             double[] pricesprocentaje = { 0.002, 0.05, 0.1 };
-            penaltyFirstDays = pricesprocentaje[0] * rental;
-            penaltyMiddleDays = pricesprocentaje[1] * rental;
-            penaltyLongDays = pricesprocentaje[2] * rental;
+             if ((daysToPay >= 1) && (daysToPay <= 10))
+                return rental + pricesprocentaje[0] * rental;
+            if ((daysToPay >= 11) && (daysToPay <= 30))
+                return rental + pricesprocentaje[1] * rental;
+
+            return rental + pricesprocentaje[2] * rental;
+
         }
     }
 }
