@@ -30,23 +30,22 @@ namespace Debtproblem
         }
         public double CalculateSumOfDebt(int rental, int daysToPay)
         {
-            double[] pricesProcentage = { 0.002, 0.05, 0.1 };
-            double payDay = rental / 30;
-
-            if ((daysToPay >= 1) && (daysToPay <= 10))
-                return rental + pricesProcentage[0] * payDay * daysToPay;
-            if ((daysToPay >= 11) && (daysToPay <= 30))
-                return rental + pricesProcentage[1] * payDay * daysToPay;
-            if ((daysToPay >= 40))
-                return rental + NewMethod(daysToPay, pricesProcentage, payDay);
-            else
-                return rental;
+            double totalSumofRentForLessDays, totalSumofRentForMiddleDays, totalSumofRentForLongDays;
+            CalculusOfTotalSum(rental, daysToPay, out totalSumofRentForLessDays, out totalSumofRentForMiddleDays, out totalSumofRentForLongDays);
+            if ((daysToPay >= 1) && (daysToPay <= 10))return totalSumofRentForLessDays;
+            if ((daysToPay >= 11) && (daysToPay <= 30))return totalSumofRentForMiddleDays;
+            if ((daysToPay >= 40))return totalSumofRentForLongDays;
+            return rental;
 
         }
 
-        private static double NewMethod(int daysToPay, double[] pricesProcentage, double payDay)
+        private static void CalculusOfTotalSum(int rental, int daysToPay, out double totalSumofRentForLessDays, out double totalSumofRentForMiddleDays, out double totalSumofRentForLongDays)
         {
-            return pricesProcentage[2] * payDay * daysToPay;
+            double[] pricesProcentage = { 0.002, 0.05, 0.1 };
+            double payDay = rental / 30;
+            totalSumofRentForLessDays = rental + pricesProcentage[0] * payDay * daysToPay;
+            totalSumofRentForMiddleDays = rental + pricesProcentage[1] * payDay * daysToPay;
+            totalSumofRentForLongDays = rental + pricesProcentage[2] * payDay * daysToPay;
         }
     }
 }
