@@ -33,7 +33,7 @@ namespace Debtproblem
             double[] pricesProcentage = { 0.002, 0.05, 0.1 };
             double payDay = rental / 30;
            
-             if ((daysToPay >= 1) && (daysToPay <= 10))
+            if ((daysToPay >= 1) && (daysToPay <= 10))
                 return rental + pricesProcentage[0] * payDay * daysToPay;
             if ((daysToPay >= 11) && (daysToPay <= 30))
                 return rental + pricesProcentage[0] * payDay * daysToPay;
