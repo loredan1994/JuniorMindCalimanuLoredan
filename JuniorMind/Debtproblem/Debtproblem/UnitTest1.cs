@@ -30,38 +30,47 @@ namespace Debtproblem
         }
         public double CalculateSumOfDebt(int rental, int daysToPay)
         {
-            double[] pricesProcentage = { 0.002, 0.05, 0.1 };
-            double totalSumOfRent;
-            CalculusOfTotalSum(rental, daysToPay, out totalSumOfRent);
-            if ((daysToPay >= 1) && (daysToPay <= 10))
-                return resultInLessDaysCase(rental, pricesProcentage, totalSumOfRent);
-            if ((daysToPay >= 11) && (daysToPay <= 30))
-                return resultInMiddleDaysCase(rental, pricesProcentage, totalSumOfRent);
-            if ((daysToPay >= 40))
-                return resultInLongDaysCase(rental, pricesProcentage, totalSumOfRent);
-            return rental;
-
-        }
-
-        private static double resultInLongDaysCase(int rental, double[] pricesProcentage, double totalSumOfRent)
-        {
-            return rental + totalSumOfRent * pricesProcentage[2];
-        }
-
-        private static double resultInMiddleDaysCase(int rental, double[] pricesProcentage, double totalSumOfRent)
-        {
-            return rental + totalSumOfRent * pricesProcentage[1];
-        }
-
-        private static double resultInLessDaysCase(int rental, double[] pricesProcentage, double totalSumOfRent)
-        {
-            return rental + totalSumOfRent * pricesProcentage[0];
-        }
-
-        private static void CalculusOfTotalSum(int rental, int daysToPay, out double totalSumOfRent)
-        {
+            double[] pricesProcentage = { 0, 0.02, 0.05, 0.1 };
+            double pricePerDelay = GetPricePerDelay(daysToPay, pricesProcentage);
             double payDay = rental / 30;
-            totalSumOfRent = payDay * daysToPay;
-        }         
+            return rental + payDay* pricePerDelay;
+
+
+        }
+        private double[] pricesProcentage(int daysToPay)
+        {
+            double[] pricesProcentageDelays = { 0, 0.02 , 0.05, 0.1 };
+            return pricesProcentageDelays;
+        }
+
+        private double GetPricePerDelay(int daysToPay, double[] pricesProcentage)
+        {
+            
+            if (priceForShortDelays(daysToPay))
+                return pricesProcentage[1];
+            if (priceForMiddleDelays(daysToPay))
+                return pricesProcentage[2];
+            if(priceForLongDelays(daysToPay))
+            return pricesProcentage[3];
+            return pricesProcentage[0];
+
+
+        }
+      
+
+        private bool priceForShortDelays(int daysToPay)
+        {
+            return(daysToPay >= 1 && daysToPay <= 10);
+        }
+        private bool priceForMiddleDelays(int daysToPay)
+        {
+            return (daysToPay >= 11) && (daysToPay <= 30);
+
+        }
+        private bool priceForLongDelays(int daysToPay)
+        {
+            return (daysToPay >= 40);
+        }
+
     }
 }
