@@ -11,12 +11,12 @@ namespace Debtproblem
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.AreEqual(60.16, CalculateSumOfDebt(60, 40));
+            Assert.AreEqual(68, CalculateSumOfDebt(60, 40));
         }
         [TestMethod]
         public void TestMethod2()
         {
-            Assert.AreEqual(90.12, CalculateSumOfDebt(90, 20));
+            Assert.AreEqual(93, CalculateSumOfDebt(90, 20));
         }
         [TestMethod]
         public void TestMethod3()
@@ -32,16 +32,21 @@ namespace Debtproblem
         {
             double[] pricesProcentage = { 0.002, 0.05, 0.1 };
             double payDay = rental / 30;
-           
+
             if ((daysToPay >= 1) && (daysToPay <= 10))
                 return rental + pricesProcentage[0] * payDay * daysToPay;
             if ((daysToPay >= 11) && (daysToPay <= 30))
-                return rental + pricesProcentage[0] * payDay * daysToPay;
+                return rental + pricesProcentage[1] * payDay * daysToPay;
             if ((daysToPay >= 40))
-            return rental + pricesProcentage[0] * payDay * daysToPay;
+                return rental + NewMethod(daysToPay, pricesProcentage, payDay);
             else
-            return rental;
-            
+                return rental;
+
+        }
+
+        private static double NewMethod(int daysToPay, double[] pricesProcentage, double payDay)
+        {
+            return pricesProcentage[2] * payDay * daysToPay;
         }
     }
 }
