@@ -11,28 +11,37 @@ namespace Debtproblem
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.AreEqual(66, CalculateSumOfDebt(60, 40));
+            Assert.AreEqual(60.16, CalculateSumOfDebt(60, 40));
         }
         [TestMethod]
         public void TestMethod2()
         {
-            Assert.AreEqual(94.5, CalculateSumOfDebt(90, 20));
+            Assert.AreEqual(90.12, CalculateSumOfDebt(90, 20));
         }
         [TestMethod]
         public void TestMethod3()
         {
-            Assert.AreEqual(100.2, CalculateSumOfDebt(100, 8));
+            Assert.AreEqual(100.048, CalculateSumOfDebt(100, 8));
+        }
+        [TestMethod]
+        public void TestWhenNoDelay()
+        {
+            Assert.AreEqual(100, CalculateSumOfDebt(100, 0));
         }
         public double CalculateSumOfDebt(int rental, int daysToPay)
         {
-            double[] pricesprocentaje = { 0.002, 0.05, 0.1 };
+            double[] pricesProcentage = { 0.002, 0.05, 0.1 };
+            double payDay = rental / 30;
+           
              if ((daysToPay >= 1) && (daysToPay <= 10))
-                return rental + pricesprocentaje[0] * rental;
+                return rental + pricesProcentage[0] * payDay * daysToPay;
             if ((daysToPay >= 11) && (daysToPay <= 30))
-                return rental + pricesprocentaje[1] * rental;
-
-            return rental + pricesprocentaje[2] * rental;
-
+                return rental + pricesProcentage[0] * payDay * daysToPay;
+            if ((daysToPay >= 40))
+            return rental + pricesProcentage[0] * payDay * daysToPay;
+            else
+            return rental;
+            
         }
     }
 }
