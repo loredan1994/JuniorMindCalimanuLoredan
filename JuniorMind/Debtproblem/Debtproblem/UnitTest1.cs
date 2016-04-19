@@ -21,7 +21,7 @@ namespace Debtproblem
         [TestMethod]
         public void TestMethod3()
         {
-            Assert.AreEqual(100.048, CalculateSumOfDebt(100, 8));
+            Assert.AreEqual(100.48, CalculateSumOfDebt(100, 8));
         }
         [TestMethod]
         public void TestWhenNoDelay()
@@ -31,9 +31,10 @@ namespace Debtproblem
         public double CalculateSumOfDebt(int rental, int daysToPay)
         {
             double[] pricesProcentage = { 0, 0.02, 0.05, 0.1 };
-            double pricePerDelay = GetPricePerDelay(daysToPay, pricesProcentage);
             double payDay = rental / 30;
-            return rental + payDay* pricePerDelay;
+            double pricePerDelay = GetPricePerDelay(daysToPay, pricesProcentage,payDay);
+           
+            return rental + pricePerDelay;
 
 
         }
@@ -43,16 +44,16 @@ namespace Debtproblem
             return pricesProcentageDelays;
         }
 
-        private double GetPricePerDelay(int daysToPay, double[] pricesProcentage)
+        private double GetPricePerDelay(int daysToPay, double[] pricesProcentage, double payDay)
         {
             
             if (priceForShortDelays(daysToPay))
-                return pricesProcentage[1];
+                return daysToPay*payDay * pricesProcentage[1];
             if (priceForMiddleDelays(daysToPay))
-                return pricesProcentage[2];
+                return daysToPay* payDay *pricesProcentage[2];
             if(priceForLongDelays(daysToPay))
-            return pricesProcentage[3];
-            return pricesProcentage[0];
+            return daysToPay * payDay * pricesProcentage[3];
+            return daysToPay * payDay * pricesProcentage[0];
 
 
         }
