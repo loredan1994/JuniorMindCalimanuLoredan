@@ -30,30 +30,30 @@ namespace Debtproblem
         }
         public double CalculateSumOfDebt(int rental, int daysToPay)
         {
-            double[] pricesProcentage = { 0, 0.02, 0.05, 0.1 };
+            double[] GetPricesProcentage = { 0, 0.02, 0.05, 0.1 };
             double payDay = rental / 30;
-            double pricePerDelay = GetPricePerDelay(daysToPay, pricesProcentage,payDay);
+            double pricePerDelay = GetPricePerDelay(daysToPay, GetPricesProcentage,payDay);
            
             return rental + pricePerDelay;
 
 
         }
-        private double[] pricesProcentage(int daysToPay)
+        private double[] GetPricesProcentage(int daysToPay)
         {
-            double[] pricesProcentageDelays = { 0, 0.02 , 0.05, 0.1 };
-            return pricesProcentageDelays;
+            double[] GetGetPricesProcentageDelays = { 0, 0.02 , 0.05, 0.1 };
+            return GetGetPricesProcentageDelays;
         }
 
-        private double GetPricePerDelay(int daysToPay, double[] pricesProcentage, double payDay)
+        private double GetPricePerDelay(int daysToPay, double[] GetPricesProcentage, double payDay)
         {
             
             if (priceForShortDelays(daysToPay))
-                return daysToPay*payDay * pricesProcentage[1];
+                return daysToPay*payDay * GetPricesProcentage[1];
             if (priceForMiddleDelays(daysToPay))
-                return daysToPay* payDay *pricesProcentage[2];
+                return daysToPay* payDay *GetPricesProcentage[2];
             if(priceForLongDelays(daysToPay))
-            return daysToPay * payDay * pricesProcentage[3];
-            return daysToPay * payDay * pricesProcentage[0];
+            return daysToPay * payDay * GetPricesProcentage[3];
+            return daysToPay * payDay * GetPricesProcentage[0];
 
 
         }
