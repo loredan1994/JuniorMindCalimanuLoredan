@@ -40,18 +40,18 @@ namespace Debtproblem
         }
         private double[] GetPricesProcentage(int daysToPay)
         {
-            double[] GetGetPricesProcentageDelays = { 0, 0.02 , 0.05, 0.1 };
-            return GetGetPricesProcentageDelays;
+            double[] GetPricesProcentageDelays = { 0, 0.02 , 0.05, 0.1 };
+            return GetPricesProcentageDelays;
         }
 
         private double GetPricePerDelay(int daysToPay, double[] GetPricesProcentage, double payDay)
         {
             
-            if (priceForShortDelays(daysToPay))
+            if (GetPriceForShortDelays(daysToPay))
                 return daysToPay*payDay * GetPricesProcentage[1];
-            if (priceForMiddleDelays(daysToPay))
+            if (GetPriceForMiddleDelays(daysToPay))
                 return daysToPay* payDay *GetPricesProcentage[2];
-            if(priceForLongDelays(daysToPay))
+            if(GetPriceForLongDelays(daysToPay))
             return daysToPay * payDay * GetPricesProcentage[3];
             return daysToPay * payDay * GetPricesProcentage[0];
 
@@ -59,16 +59,16 @@ namespace Debtproblem
         }
       
 
-        private bool priceForShortDelays(int daysToPay)
+        private bool GetPriceForShortDelays(int daysToPay)
         {
             return(daysToPay >= 1 && daysToPay <= 10);
         }
-        private bool priceForMiddleDelays(int daysToPay)
+        private bool GetPriceForMiddleDelays(int daysToPay)
         {
             return (daysToPay >= 11) && (daysToPay <= 30);
 
         }
-        private bool priceForLongDelays(int daysToPay)
+        private bool GetPriceForLongDelays(int daysToPay)
         {
             return (daysToPay >= 40);
         }
