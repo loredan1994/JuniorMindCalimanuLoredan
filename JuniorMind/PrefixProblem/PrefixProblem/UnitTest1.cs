@@ -11,9 +11,33 @@ namespace PrefixProblem
         {
             Assert.AreEqual("abab", FindIfItsPrefix("ababc", "ababd"));
         }
-        public string FindIfItsPrefix(string firstWord , string secondWord)
+        [TestMethod]
+        public void FindPrefixTest()
         {
-            return string.Empty;
+            Assert.AreEqual("a", FindIfItsPrefix("a", "ababd"));
+        }
+        [TestMethod]
+        public void FindIfPrefix()
+        {
+            Assert.AreEqual("do", FindIfItsPrefix("dodoson", "dooson"));
+        }
+        [TestMethod]
+        public void FindIfNoPrefix()
+        {
+            Assert.AreEqual("", FindIfItsPrefix("lol", "dota"));
+        }
+        public string FindIfItsPrefix(string firstWord, string secondWord)
+        {
+            string prefix = string.Empty;
+            for (int i=0 ; i < firstWord.Length && i < secondWord.Length ; i++)
+            {
+                if (firstWord[i] != secondWord[i]) break;
+                else
+                   prefix += firstWord[i] ;
+                
+            }
+            return prefix;
+             
         }
     }
 }
