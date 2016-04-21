@@ -36,9 +36,24 @@ namespace ChessTable
         {
             Assert.AreEqual(140, (GetNumberOfSquares(7)));
         }
-        public double GetNumberOfSquares(double squares)
+        [TestMethod]
+        public void TestingForEightSquares()
         {
-            double computation = 0;
+            Assert.AreEqual(204, (GetNumberOfSquares(8)));
+        }
+        [TestMethod]
+        public void TestingForNineSquares()
+        {
+            Assert.AreEqual(285, (GetNumberOfSquares(9)));
+        }
+        [TestMethod]
+        public void TestingForTenSquares()
+        {
+            Assert.AreEqual(385, (GetNumberOfSquares(10)));
+        }
+        public int GetNumberOfSquares(int squares)
+        {
+            int computation = 0;
             while (squares > 0)
             {
                 computation = computation + (squares* squares);
