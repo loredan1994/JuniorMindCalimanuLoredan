@@ -32,7 +32,7 @@ namespace CubeProblem
             int i = 0;
             int cube = 0;
             int multiplication = 0;
-            while((cube % 1000 !=888) || (multiplication != number))
+            while(multiplication != number)
             {
                 i++;
                 cube = i * i * i;
