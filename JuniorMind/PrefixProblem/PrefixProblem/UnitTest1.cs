@@ -32,7 +32,6 @@ namespace PrefixProblem
             for (int i=0 ; i < firstWord.Length && i < secondWord.Length ; i++)
             {
                 if (firstWord[i] != secondWord[i]) break;
-                else
                    prefix += firstWord[i] ;
                 
             }
