@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AnagramProblem
+namespace Anagram
 {
     [TestClass]
     public class UnitTest1
