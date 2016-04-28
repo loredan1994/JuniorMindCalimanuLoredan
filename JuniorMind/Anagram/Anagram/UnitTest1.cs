@@ -7,7 +7,7 @@ namespace AnagramProblem
     public class UnitTest1
     {
         [TestMethod]
-        public void CalculateAnagramWithSameLetters()
+        public void CalculateAnagramWithOneLetter()
         {
             Assert.AreEqual(1, CalculateAnagram("aaa"));
         }
@@ -15,6 +15,11 @@ namespace AnagramProblem
         public void GetTheRepetitions()
         {
             Assert.AreEqual(3, GetRepetition('a', "aaaccvb"));
+        }
+        [TestMethod]
+        public void GetRepetitionsReTest()
+        {
+            Assert.AreEqual(2, GetRepetition('c', "aaaccvb"));
         }
         [TestMethod]
         public void ComputeAnagram()
