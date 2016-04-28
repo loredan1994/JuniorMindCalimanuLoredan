@@ -7,35 +7,61 @@ namespace LottoProblem
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CathegoryIforSpecialLotto()
         {
-            Assert.AreEqual(0.0000000715,GetProbabilities(6, 6, 49));
+            Assert.AreEqual(0.0000000715,GetProbabilities(5, 5, 40));
         }
         [TestMethod]
         public void ComputeFactorial()
         {
             Assert.AreEqual(24, GetFactorial(4));
         }
+        [TestMethod]
+        public void CalculationOfCombinations()
+        {
+            Assert.AreEqual(4, combinationsOfNumbers(4, 3));
+        }
+        [TestMethod]
+        public void CathegoryIforLotto()
+        {
+            Assert.AreEqual(0.0000000715, GetProbabilities(6, 6, 49));
+
+        }
+        [TestMethod]
+        public void CathegoryIIforLotto()
+        {
+            Assert.AreEqual(0.0000000715, GetProbabilities(5, 6, 49));
+        }
+        [TestMethod]
+        public void CathegoryIIIforLotto()
+        {
+            Assert.AreEqual(0.0000000715, GetProbabilities(4, 6, 49));
+        }
+        [TestMethod]
+        public void CathegoryIVforLotto()
+        {
+            Assert.AreEqual(0.0000000715, GetProbabilities(3, 6, 49));
+        }
         public double GetProbabilities(int favorableCases, int PossibleCases, int totalNumbers)
         {
-            double probabilities = favorableCases / PossibleCases;
-            return probabilities;
+            double chances = ((combinationsOfNumbers(PossibleCases, favorableCases) * combinationsOfNumbers((totalNumbers - PossibleCases), (PossibleCases - favorableCases))) / combinationsOfNumbers(totalNumbers, PossibleCases));
+            return chances;
         }
-         public double combinationsOfNumbers(int favorableCases , int PossibleCases)
+
+        public double GetFactorial(int number)
         {
-            double combinations = GetFactorial(favorableCases) / GetFactorial(favorableCases - PossibleCases) * GetFactorial(PossibleCases);
-            return combinations;
-        }
-        public int GetFactorial(int number)
-        {
-            int result = 1;
-            for (int i = 1; i <= number; i++)
+            double result = 1;
+            while (number != 0)
             {
-                result *= i;
-
+                result *= number;
+                number--;
             }
-
             return result;
+        }
+
+        public double combinationsOfNumbers(int n, int k)
+        {
+            return GetFactorial(n) / ( GetFactorial(n - k) * GetFactorial(k));
 
         }
     }
