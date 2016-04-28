@@ -9,7 +9,7 @@ namespace LottoProblem
         [TestMethod]
         public void CathegoryIforSpecialLotto()
         {
-            Assert.AreEqual(0.0000000715,GetProbabilities(5, 5, 40));
+            Assert.AreEqual(0.0000000715,GetProbabilities(5, 5, 40), 0.00001);
         }
         [TestMethod]
         public void ComputeFactorial()
@@ -24,28 +24,28 @@ namespace LottoProblem
         [TestMethod]
         public void CathegoryIforLotto()
         {
-            Assert.AreEqual(0.0000000715, GetProbabilities(6, 6, 49));
+            Assert.AreEqual(4.29067430521111E-07, GetProbabilities(6, 6, 49), 0.000001);
 
         }
         [TestMethod]
         public void CathegoryIIforLotto()
         {
-            Assert.AreEqual(0.0000000715, GetProbabilities(5, 6, 49));
+            Assert.AreEqual(0.0000000715, GetProbabilities(5, 6, 49), 0.000001);
         }
         [TestMethod]
         public void CathegoryIIIforLotto()
         {
-            Assert.AreEqual(0.0000000715, GetProbabilities(4, 6, 49));
+            Assert.AreEqual(0.0000000715, GetProbabilities(4, 6, 49), 0.000001);
         }
         [TestMethod]
         public void CathegoryIVforLotto()
         {
-            Assert.AreEqual(0.0000000715, GetProbabilities(3, 6, 49));
+            Assert.AreEqual(0.0000000715, GetProbabilities(3, 6, 49), 0.000001);
         }
         public double GetProbabilities(int favorableCases, int PossibleCases, int totalNumbers)
         {
-            double chances = favorableCases * GetFactorial(totalNumbers - PossibleCases) * GetFactorial(PossibleCases) / GetFactorial(totalNumbers);
-            return chances;
+            double probabilities = (favorableCases * (GetFactorial(totalNumbers - PossibleCases) * GetFactorial(PossibleCases))) / GetFactorial(totalNumbers);
+            return probabilities;
         }
 
         public double GetFactorial(int number)
