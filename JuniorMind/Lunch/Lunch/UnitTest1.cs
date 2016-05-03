@@ -17,7 +17,7 @@ namespace Lunch
             Assert.AreEqual(4, FindCMMMC(4, 4));
         }
         [TestMethod]
-        public void WhenFriendTwoIsBiggerThanFriendOne()
+        public void WhenfriendTwoIsBiggerThanfriendOne()
         {
             Assert.AreEqual(12, FindCMMMC(4, 6));
         }
@@ -27,23 +27,21 @@ namespace Lunch
             Assert.AreEqual(21, FindDifferenceOfDays(3, 7));
 
         }
-        public int FindDifferenceOfDays(int FriendOne, int FriendTwo)
+        public int FindDifferenceOfDays(int friendOne, int friendTwo)
         {
            
-            while (FriendOne != FriendTwo)
-            {
-                if (IsPrime(FriendOne) && IsPrime(FriendTwo))
-                    return FriendTwo * FriendOne;
-                if (FriendOne>FriendTwo)
-                    return FriendOne -= FriendTwo;
-                if(FriendTwo>FriendOne)
-                    return FriendTwo -= FriendOne;
-            }
-            return  FriendOne;
+             if (IsPrime(friendOne) && IsPrime(friendTwo))
+                    return friendTwo * friendOne;
+                if (friendOne>friendTwo)
+                    return friendOne -= friendTwo;
+                if(friendTwo>friendOne)
+                   return friendTwo -= friendOne;
+            
+            return  friendOne;
         }
-        public int FindCMMMC( int FriendOne, int FriendTwo)
+        public int FindCMMMC( int friendOne, int friendTwo)
         {
-            return FriendOne * FriendTwo / FindDifferenceOfDays(FriendOne, FriendTwo);
+            return friendOne * friendTwo / FindDifferenceOfDays(friendOne, friendTwo);
         }
         public static bool IsPrime(int number)
         {
