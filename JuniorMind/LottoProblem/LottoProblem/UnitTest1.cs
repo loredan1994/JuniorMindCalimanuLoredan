@@ -49,8 +49,8 @@ namespace LottoProblem
         }
         public double GetProbabilities(int favorableCases, int PossibleCases, int totalNumbers)
         {
-            double probabilities = (favorableCases * (GetFactorial(totalNumbers - PossibleCases) * GetFactorial(PossibleCases))) / GetFactorial(totalNumbers);
-            return probabilities;
+            double probabilities = favorableCases / CombinationsOfNumbers(totalNumbers,PossibleCases);
+                return probabilities;
         }
 
         public double GetFactorial(int number)
