@@ -19,7 +19,12 @@ namespace LottoProblem
         [TestMethod]
         public void CalculationOfCombinations()
         {
-            Assert.AreEqual(4, combinationsOfNumbers(4, 3));
+            Assert.AreEqual(4, CombinationsOfNumbers(4, 3));
+        }
+        [TestMethod]
+        public void CalculateCombinationsOfNumbers()
+        {
+            Assert.AreEqual(252, CombinationsOfNumbers(10, 5));
         }
         [TestMethod]
         public void CathegoryIforLotto()
@@ -59,7 +64,7 @@ namespace LottoProblem
             return result;
         }
 
-        public double combinationsOfNumbers(int n, int k)
+        public double CombinationsOfNumbers(int n, int k)
         {
             return GetFactorial(n) / (GetFactorial(k) * (GetFactorial(n - k)));
 
