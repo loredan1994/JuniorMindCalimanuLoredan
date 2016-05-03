@@ -29,7 +29,7 @@ namespace Lunch
         }
         public int FindDifferenceOfDays(int FriendOne, int FriendTwo)
         {
-            int cmmmc=0;
+           
             while (FriendOne != FriendTwo)
             {
                 if (IsPrime(FriendOne) && IsPrime(FriendTwo))
@@ -39,7 +39,7 @@ namespace Lunch
                 if(FriendTwo>FriendOne)
                     return FriendTwo -= FriendOne;
             }
-            return cmmmc = FriendOne;
+            return  FriendOne;
         }
         public int FindCMMMC( int FriendOne, int FriendTwo)
         {
