@@ -39,12 +39,7 @@ namespace Panagram
             for (int i = 'a'; i < 'z'; i++)
 
             {
-                int counter = 0;
-
-                for (int j = 0; j < panagramStatement.Length; j++)
-                {
-                    if (panagramStatement[j] == i) counter++;
-                }
+                int counter = Count(panagramStatement, i);
                 if (counter == 0)
                     return false;
 
@@ -54,5 +49,16 @@ namespace Panagram
 
         }
 
+        private static int Count(string panagramStatement, int i)
+        {
+            int counter = 0;
+
+            for (int j = 0; j < panagramStatement.Length; j++)
+            {
+                if (panagramStatement[j] == i) counter++;
+            }
+
+            return counter;
+        }
     }
 }
