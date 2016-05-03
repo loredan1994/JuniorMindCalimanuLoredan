@@ -9,7 +9,7 @@ namespace LottoProblem
         [TestMethod]
         public void CathegoryIforSpecialLotto()
         {
-            Assert.AreEqual(7.59869180921812E-06,GetProbabilities(5, 5, 40), 0.000001);
+            Assert.AreEqual(1.51973836184362E-06, GetProbabilities(40,5,5), 0.000001);
         }
         [TestMethod]
         public void ComputeFactorial()
@@ -29,28 +29,27 @@ namespace LottoProblem
         [TestMethod]
         public void CathegoryIforLotto()
         {
-            Assert.AreEqual(4.29067430521111E-07, GetProbabilities(6, 6, 49), 0.000001);
+            Assert.AreEqual(4.29067430521111E-07, GetProbabilities(49,6,6), 0.000001);
 
         }
         [TestMethod]
         public void CathegoryIIforLotto()
         {
-            Assert.AreEqual(3.57556192100926E-07, GetProbabilities(5, 6, 49),0.000001);
+            Assert.AreEqual(1.84498995124078E-05, GetProbabilities(49, 6, 5),0.000001);
         }
         [TestMethod]
         public void CathegoryIIIforLotto()
         {
-            Assert.AreEqual(2.86044953680741E-07, GetProbabilities(4, 6, 49), 0.000001);
+            Assert.AreEqual(0.000968619724401408, GetProbabilities(49, 6, 4), 0.000001);
         }
         [TestMethod]
         public void CathegoryIVforLotto()
         {
-            Assert.AreEqual(2.14533715260555E-07, GetProbabilities(3, 6, 49), 0.000001);
+            Assert.AreEqual(0.0176504038668701, GetProbabilities(49, 6 ,3), 0.000001);
         }
-        public double GetProbabilities(int favorableCases, int PossibleCases, int totalNumbers)
+        public double GetProbabilities(int numberOfBallsInLottery, int numberOfBallsInATicket, int numberOfMatchingBalls )
         {
-            double probabilities = favorableCases / CombinationsOfNumbers(totalNumbers,PossibleCases);
-                return probabilities;
+            return (CombinationsOfNumbers(numberOfBallsInATicket, numberOfMatchingBalls) * CombinationsOfNumbers(numberOfBallsInLottery - numberOfBallsInATicket, numberOfBallsInATicket - numberOfMatchingBalls)) / CombinationsOfNumbers(numberOfBallsInLottery, numberOfBallsInATicket);
         }
 
         public double GetFactorial(int number)
