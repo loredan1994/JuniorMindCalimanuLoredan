@@ -30,35 +30,25 @@ namespace Lunch
         [TestMethod]
         public void NewTestMethod()
         {
-            Assert.AreEqual(8, FindCMMDC(2, 8));
+            Assert.AreEqual(8, FindCMMMC(2, 8));
+        }
+        public int FindCMMDC(int a, int b)
+        {
+
+            int rest;
+            rest = a % b;
+            while (rest != 0)
+            {
+                a = b;
+                b = rest;
+                rest = a % b;
+            }
+            return b;
         }
 
         public int FindCMMMC( int friendOne, int friendTwo)
         {
-            if (IsPrime(friendOne) && IsPrime(friendTwo))
-                return friendOne *= friendTwo;
-            return friendOne * friendTwo / FindCMMDC(friendOne, friendTwo);
-        }
-        public int FindCMMDC(int a , int b)
-        {
-
-            while (a != b)
-            {
-                if (a > b)
-                    return a -= b;
-                return b -= a;
-
-            }
-            return a;
-        }
-        public static bool IsPrime(int number)
-        {
-            for (int i = 2; i < number; i++)
-            {
-                if (number % i == 0 && i != number)
-                    return false;
-            }
-            return true;
+            return (friendOne * friendTwo) / FindCMMDC(friendOne, friendTwo);
         }
     }
 }
