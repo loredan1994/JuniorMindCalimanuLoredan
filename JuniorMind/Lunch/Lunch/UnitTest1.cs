@@ -21,20 +21,38 @@ namespace Lunch
         {
             Assert.AreEqual(12, FindCMMMC(4, 6));
         }
+        [TestMethod]
+        public void WhenWeGotPrimeNumbers()
+        {
+            Assert.AreEqual(21, FindDifferenceOfDays(3, 7));
+
+        }
         public int FindDifferenceOfDays(int FriendOne, int FriendTwo)
         {
-            int smallDivider=0;
+            int cmmmc=0;
             while (FriendOne != FriendTwo)
             {
-                if(FriendOne>FriendTwo)
-                return FriendOne = FriendOne - FriendTwo;
-                return FriendTwo = FriendTwo - FriendOne;               
+                if (IsPrime(FriendOne) && IsPrime(FriendTwo))
+                    return FriendTwo * FriendOne;
+                if (FriendOne>FriendTwo)
+                    return FriendOne -= FriendTwo;
+                if(FriendTwo>FriendOne)
+                    return FriendTwo -= FriendOne;
             }
-            return smallDivider = FriendOne;
+            return cmmmc = FriendOne;
         }
         public int FindCMMMC( int FriendOne, int FriendTwo)
         {
             return FriendOne * FriendTwo / FindDifferenceOfDays(FriendOne, FriendTwo);
+        }
+        public static bool IsPrime(int number)
+        {
+            for (int i = 2; i < number; i++)
+            {
+                if (number % i == 0 && i != number)
+                    return false;
+            }
+            return true;
         }
     }
 }
