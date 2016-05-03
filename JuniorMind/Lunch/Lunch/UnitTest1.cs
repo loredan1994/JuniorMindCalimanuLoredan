@@ -24,24 +24,32 @@ namespace Lunch
         [TestMethod]
         public void WhenWeGotPrimeNumbers()
         {
-            Assert.AreEqual(21, FindDifferenceOfDays(3, 7));
+            Assert.AreEqual(21, FindCMMMC(3, 7));
 
         }
-        public int FindDifferenceOfDays(int friendOne, int friendTwo)
+        [TestMethod]
+        public void NewTestMethod()
         {
-           
-             if (IsPrime(friendOne) && IsPrime(friendTwo))
-                    return friendTwo * friendOne;
-                if (friendOne>friendTwo)
-                    return friendOne -= friendTwo;
-                if(friendTwo>friendOne)
-                   return friendTwo -= friendOne;
-            
-            return  friendOne;
+            Assert.AreEqual(8, FindCMMDC(2, 8));
         }
+
         public int FindCMMMC( int friendOne, int friendTwo)
         {
-            return friendOne * friendTwo / FindDifferenceOfDays(friendOne, friendTwo);
+            if (IsPrime(friendOne) && IsPrime(friendTwo))
+                return friendOne *= friendTwo;
+            return friendOne * friendTwo / FindCMMDC(friendOne, friendTwo);
+        }
+        public int FindCMMDC(int a , int b)
+        {
+
+            while (a != b)
+            {
+                if (a > b)
+                    return a -= b;
+                return b -= a;
+
+            }
+            return a;
         }
         public static bool IsPrime(int number)
         {
