@@ -29,23 +29,25 @@ namespace LottoProblem
         [TestMethod]
         public void CathegoryIforLotto()
         {
-            Assert.AreEqual(4.29067430521111E-07, GetProbabilities(49,6,6), 0.000001);
+            Assert.AreEqual(0.0000000715, GetProbabilities(49, 6, 6), 1e-10);
+
+
 
         }
         [TestMethod]
         public void CathegoryIIforLotto()
         {
-            Assert.AreEqual(1.84498995124078E-05, GetProbabilities(49, 6, 5),0.000001);
+            Assert.AreEqual(0.0000184, GetProbabilities(49, 6, 5),1e-5);
         }
         [TestMethod]
         public void CathegoryIIIforLotto()
         {
-            Assert.AreEqual(0.000968619724401408, GetProbabilities(49, 6, 4), 0.000001);
+            Assert.AreEqual(0.000969, GetProbabilities(49, 6, 4), 1e-5);
         }
         [TestMethod]
         public void CathegoryIVforLotto()
         {
-            Assert.AreEqual(0.0176504038668701, GetProbabilities(49, 6 ,3), 0.000001);
+            Assert.AreEqual(0.0177, GetProbabilities(49, 6 ,3), 1e-3);
         }
         public double GetProbabilities(int numberOfBallsInLottery, int numberOfBallsInATicket, int numberOfMatchingBalls )
         {
