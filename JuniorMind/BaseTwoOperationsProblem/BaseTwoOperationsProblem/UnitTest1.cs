@@ -73,6 +73,16 @@ namespace BaseTwoOperationsProblem
         {
             CollectionAssert.AreEqual(new byte[] { 1, 1, 1 }, ValidateOR(new byte[] { 0, 1, 0 }, new byte[] { 1, 0, 1 }));
         }
+        [TestMethod]
+        public void TestForXOROperator()
+        {
+            CollectionAssert.AreEqual(new byte[] { 0, 0, 0 }, ValidateXOR(new byte[] { 1, 1, 1 }, new byte[] { 1, 1, 1 }));
+        }
+        [TestMethod]
+        public void TestForXOROperand()
+        {
+            CollectionAssert.AreEqual(new byte[] { 0, 0, 1 }, ValidateXOR(new byte[] { 1, 1, 1 }, new byte[] { 0 , 1, 1 }));
+        }
         public byte[] ToBinary(int number)
         {
             int rest = 0;
@@ -133,6 +143,18 @@ namespace BaseTwoOperationsProblem
                 else result[i] = 1;
 
 
+            }
+            return result;
+        }
+        byte[] ValidateXOR(byte[] firstByte , byte[] secondByte)
+        {
+            byte[] result = new byte[firstByte.Length];
+            for (int i=0; i<firstByte.Length; i++)
+            {
+                if (GetPosition(i, firstByte) == 0 && GetPosition(i, secondByte) == 0 || GetPosition(i, firstByte) == 1 && GetPosition(i, secondByte) == 1)
+                    result[i] = 0;
+                else
+                    result[i] = 1;
             }
             return result;
         }
