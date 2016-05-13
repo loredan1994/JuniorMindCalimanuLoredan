@@ -66,7 +66,7 @@ namespace BaseTwoOperationsProblem
         [TestMethod]
         public void TestForOrOperation()
         {
-            CollectionAssert.AreEqual(new byte[] { 1, 1, 1, 1 }, ValidateOR(new byte[] {0 , 0 , 0, 1 }, new byte[] { 1, 1, 1, 0 }));
+            CollectionAssert.AreEqual(new byte[] { 1, 0, 1, 0 } , ValidateOR(ToBinary(8), ToBinary(2)));
         }
         [TestMethod]
         public void TestForOrOperand()
@@ -85,18 +85,19 @@ namespace BaseTwoOperationsProblem
         }
         public byte[] ToBinary(int number)
         {
-            int rest = 0;
+            int i = 1;
             byte[] result = new byte[0];
             while (number != 0)
             {
-                rest = number % 2;
+                Array.Resize(ref result,i);
+                result[i-1] = (byte)(number % 2);
+                i++;
                 number /= 2;
-                Array.Resize(ref result, result.Length + 1);
-                result[result.Length - 1] = (byte)rest;
                 
             }
             Array.Reverse(result);
             return result;
+            
         }
         byte GetPosition(int position, byte[] array)
         {
@@ -139,8 +140,8 @@ namespace BaseTwoOperationsProblem
 
                 if (GetPosition(i, firstByte) == 0 && GetPosition(i, secondByte) == 0)
 
-                    result[i] = 0;
-                else result[i] = 1;
+                    result[i] = 0 ;
+                else result[i] = 1 ;
 
 
             }
@@ -157,6 +158,17 @@ namespace BaseTwoOperationsProblem
                     result[i] = 1;
             }
             return result;
+
         }
+        public byte[] ToCompleteBytes(byte[] bytes)
+        {
+            if (bytes.Length % 2 == 0)
+            {
+                Array.Resize(ref bytes, bytes.Length + 4 - (bytes.Length % 4));
+            }
+            return bytes;
+        }
+
     }
+
 }
