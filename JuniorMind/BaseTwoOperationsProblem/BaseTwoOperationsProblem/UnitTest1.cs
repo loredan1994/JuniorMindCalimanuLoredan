@@ -27,28 +27,6 @@ namespace BaseTwoOperationsProblem
             CollectionAssert.AreEqual(new byte[] { 1, 0, 0, 1, 0, 0, 0, 1, 1, 1 }, ToBinary(583));
         }
         [TestMethod]
-        public void TestTheGetPosition()
-        {
-            Assert.AreEqual(0, GetPosition(1, new byte[] { 1, 0, 3 }));
-        }
-        [TestMethod]
-        public void TestGetPositionNew()
-        {
-            Assert.AreEqual(2, GetPosition(8, new byte[] { 1, 2, 3, 4, 6, 8, 7, 5, 9, 10 }));
-        }
-        [TestMethod]
-        public void TestForAnd()
-        {
-            CollectionAssert.AreEqual(new byte[] { 0 }, ValidateAnd(ToBinary(1), ToBinary(2)));
-            
-
-        }
-        [TestMethod]
-        public void TestForAndNew()
-        {
-            CollectionAssert.AreEqual(new byte[] { 0, 1, 0 }, ValidateAnd(ToBinary(7), ToBinary(2)));
-        }
-        [TestMethod]
         public void TestForNotOperator ()
         {
             CollectionAssert.AreEqual(new byte [] {1}, ValidateNot(new byte[]{0}));
@@ -64,24 +42,39 @@ namespace BaseTwoOperationsProblem
             CollectionAssert.AreEqual(new byte[] { 0, 1 }, ValidateNot(new byte[] { 1, 0 }));
         }
         [TestMethod]
-        public void TestForOrOperation()
+        public void LogicalAndOperator()
         {
-            CollectionAssert.AreEqual(new byte[] { 1, 0, 1, 0 } , ValidateOR(ToBinary(8), ToBinary(2)));
+             CollectionAssert.AreEqual(new byte[] { 0, 0, 1 }, ValidateAnd(ToBinary(5), ToBinary(3)));
         }
         [TestMethod]
-        public void TestForOrOperand()
+        public void LogicalXOROperator()
         {
-            CollectionAssert.AreEqual(new byte[] { 1, 1, 1 }, ValidateOR(new byte[] { 0, 1, 0 }, new byte[] { 1, 0, 1 }));
+            CollectionAssert.AreEqual(new byte[] { 1, 1, 0 }, ValidateXOR(ToBinary(5), ToBinary(3)));
         }
         [TestMethod]
-        public void TestForXOROperator()
+        public void LogicalOrOperator()
         {
-            CollectionAssert.AreEqual(new byte[] { 0, 0, 0 }, ValidateXOR(new byte[] { 1, 1, 1 }, new byte[] { 1, 1, 1 }));
+            CollectionAssert.AreEqual(new byte[] { 1, 0, 1, 1 }, ValidateOR(ToBinary(8), ToBinary(3)));
         }
         [TestMethod]
-        public void TestForXOROperand()
+        public void RightHandShift()
         {
-            CollectionAssert.AreEqual(new byte[] { 0, 0, 1 }, ValidateXOR(new byte[] { 1, 1, 1 }, new byte[] { 0 , 1, 1 }));
+            CollectionAssert.AreEqual(ToBinary(8 >> 4), RightHandShift((ToBinary(8)), 4));
+        }
+        [TestMethod]
+        public void LeftHandShift()
+        {
+            CollectionAssert.AreEqual(ToBinary(5 << 3), LeftHandShift((ToBinary(5)), 3));
+        }
+        [TestMethod]
+        public void ConversionToAnyBase()
+        {
+            CollectionAssert.AreEqual(new byte[] { 2, 0 }, ToAnyBase(32, 16));
+        }
+        [TestMethod]
+        public void ConversionToAnyBaseTestTwo()
+        {
+            CollectionAssert.AreEqual(new byte[] { 4, 0 }, ToAnyBase(32, 8));
         }
         public byte[] ToBinary(int number)
         {
@@ -95,32 +88,15 @@ namespace BaseTwoOperationsProblem
                 number /= 2;
                 
             }
-            Array.Reverse(result);
-            return result;
+            
+            return InverseBytes(result);
             
         }
-        byte GetPosition(int position, byte[] array)
+        byte GetPosition(byte[] array, int position)
         {
-            if (position >= array.Length)
-                return 0;
-            return array[array.Length - 1 - position];
+            return (position > array.Length - 1 || position < 0) ? (byte)0 : array[array.Length - 1 - position];
         }
-        byte[] ValidateAnd(byte[] firstByte, byte[] secondByte)
-        {
-            byte[] result = new byte[firstByte.Length];
-
-            for (int i = 0; i < firstByte.Length; i++)
-            {
-
-                if (GetPosition(i, firstByte) == 1 && GetPosition(i, secondByte) == 1)
-
-                    result[i] = 1;
-                else  result[i] = 0;
-
-
-            }
-            return result;
-        }
+       
         byte[] ValidateNot(byte[] firstByte)
         {
             for (int i=0; i < firstByte.Length; i++)
@@ -131,35 +107,6 @@ namespace BaseTwoOperationsProblem
              }
             return firstByte;
         }
-        byte[] ValidateOR(byte[] firstByte, byte[] secondByte)
-        {
-            byte[] result = new byte[firstByte.Length];
-
-            for (int i = 0; i < firstByte.Length; i++)
-            {
-
-                if (GetPosition(i, firstByte) == 0 && GetPosition(i, secondByte) == 0)
-
-                    result[i] = 0 ;
-                else result[i] = 1 ;
-
-
-            }
-            return result;
-        }
-        byte[] ValidateXOR(byte[] firstByte , byte[] secondByte)
-        {
-            byte[] result = new byte[firstByte.Length];
-            for (int i=0; i<firstByte.Length; i++)
-            {
-                if (GetPosition(i, firstByte) == 0 && GetPosition(i, secondByte) == 0 || GetPosition(i, firstByte) == 1 && GetPosition(i, secondByte) == 1)
-                    result[i] = 0;
-                else
-                    result[i] = 1;
-            }
-            return result;
-
-        }
         public byte[] ToCompleteBytes(byte[] bytes)
         {
             if (bytes.Length % 2 == 0)
@@ -168,7 +115,74 @@ namespace BaseTwoOperationsProblem
             }
             return bytes;
         }
+        public byte[] OtherLogicalOperations(byte[] firstByte, byte[] secondByte, string OperatorName)
+        {
+            byte[] result = new byte[Math.Max(firstByte.Length, secondByte.Length)];
+            for (int i = 0; i < result.Length; i++)
+            {
+                switch (OperatorName)
+                {
+                    case "XOR":
+                        result[i] = (GetPosition(firstByte, i) != GetPosition(secondByte, i)) ? (byte)1 : (byte)0;
+                        break;
+                    case "AND":
+                        result[i] = (GetPosition(firstByte, i) == 1 && GetPosition(secondByte, i) == 1) ? (byte)1 : (byte)0;
+                        break;
+                    case "OR":
+                        result[i] = (GetPosition(firstByte, i) == 0 && GetPosition(secondByte, i) == 0) ? (byte)0 : (byte)1;
+                        break;
+                }
+            }
+            return InverseBytes(result);
 
+        }
+        public byte[] InverseBytes(byte[] bytesIn)
+        {
+            byte[] output = new byte[bytesIn.Length];
+            int k = 1;
+            for (int j = 0; j < bytesIn.Length; j++)
+            {
+                output[j] = bytesIn[bytesIn.Length - k];
+                k++;
+            }
+            return output;
+        }
+        public byte[] ValidateAnd(byte[] firstByte, byte[] secondByte)
+        {
+            return OtherLogicalOperations(firstByte, secondByte, "AND");
+        }
+        public byte[] ValidateOR(byte[] firstByte, byte[] secondByte)
+        {
+            return OtherLogicalOperations(firstByte, secondByte, "OR");
+        }
+        public byte[] ValidateXOR(byte[] firstbyte, byte[] secondByte)
+        {
+            return OtherLogicalOperations(firstbyte, secondByte, "XOR");
+        }
+        public byte[] RightHandShift(byte[] bytesGiven, int numberOfShiftings)
+        {
+            Array.Resize(ref bytesGiven, bytesGiven.Length - numberOfShiftings);
+            return bytesGiven;
+        }
+        public byte[] LeftHandShift(byte[] bytesGiven, int numberOfShiftings)
+        {
+            Array.Resize(ref bytesGiven, bytesGiven.Length + numberOfShiftings);
+            return bytesGiven;
+        }
+        public byte[] ToAnyBase (int number , int givenBase)
+        {
+            byte[] bytes = new byte[0];
+            int i = 1;
+            while (number != 0)
+            {
+                Array.Resize(ref bytes, i);
+                bytes[i - 1] = (byte)(number % givenBase);
+                i++;
+                number /= givenBase;
+
+            }
+            return InverseBytes(bytes);
+        }
     }
 
 }
