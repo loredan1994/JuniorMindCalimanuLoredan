@@ -76,6 +76,11 @@ namespace BaseTwoOperationsProblem
         {
             CollectionAssert.AreEqual(new byte[] { 4, 0 }, ToAnyBase(32, 8));
         }
+        [TestMethod]
+        public void AdderTestBaseTwo()
+        {
+            CollectionAssert.AreEqual(ToBinary(50+3), Adder(ToBinary(50), ToBinary(3)));
+        }
         public byte[] ToBinary(int number)
         {
             int i = 1;
@@ -182,6 +187,25 @@ namespace BaseTwoOperationsProblem
 
             }
             return InverseBytes(bytes);
+        }
+        public byte[] Adder(byte[] firstByte, byte[] secondByte)
+        {
+            byte[] result = new byte[Math.Max(firstByte.Length, secondByte.Length)];
+            int remainer = 0;
+            for (int i = 0; i< result.Length; i++)
+            {
+                int keep = GetPosition(firstByte, i) + GetPosition(secondByte, i) + remainer;
+                result[result.Length - 1 - i] = (byte)(keep % 2);
+                remainer = keep / 2;
+            }
+            if (remainer != 0)
+            {
+                Array.Reverse(result);
+                Array.Resize(ref result, result.Length + 1);
+                result[result.Length - 1] = (byte)1;
+                Array.Reverse(result);
+            }
+            return result;
         }
     }
 
