@@ -81,6 +81,11 @@ namespace BaseTwoOperationsProblem
         {
             CollectionAssert.AreEqual(ToBinary(50+3), Adder(ToBinary(50), ToBinary(3)));
         }
+        [TestMethod]
+        public void SubstractionBaseTwo()
+        {
+            CollectionAssert.AreEqual(ToBinary(50-3), Substraction(ToBinary(50), ToBinary(3)));
+        }
         public byte[] ToBinary(int number)
         {
             int i = 1;
@@ -206,6 +211,18 @@ namespace BaseTwoOperationsProblem
                 Array.Reverse(result);
             }
             return result;
+        }
+        public byte[] Substraction(byte[] firstByte,byte[] secondByte)
+        {
+            byte[] result = new byte[firstByte.Length];
+            int remainer = 0;
+            for (int i =0; i <result.Length; i++)
+            {
+                int keep = ( 2 + (GetPosition(firstByte, i) - GetPosition(secondByte, i) - remainer));
+                result[result.Length - 1 - i] = (byte)(keep % 2);
+                remainer = (keep < 2) ? (byte)1 : (byte)0;
+            }
+            return result ;
         }
     }
 
