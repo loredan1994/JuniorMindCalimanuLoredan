@@ -265,12 +265,25 @@ namespace BaseTwoOperationsProblem
             Assert.IsTrue(NotEqual(new byte[] { 1, 1, 1 }, new byte[] { 1 }));
             Assert.IsFalse(NotEqual(new byte[] { 1, 1, 1 }, new byte[] { 1, 1, 1 }));
         }
-        private bool NotEqual(byte[] firstByte, byte[] secondByte)
+        public bool NotEqual(byte[] firstByte, byte[] secondByte)
          { 
             if (LessThan(secondByte, firstByte) || LessThan(firstByte, secondByte)) 
                 return true; 
             return false; 
          }
+        [TestMethod]
+        public void EqualTest()
+        {
+            Assert.IsFalse(Equal(new byte[] { 1, 1, 1 }, new byte[] { 1 }));
+            Assert.IsTrue(Equal(new byte[] { 1, 1, 1 }, new byte[] { 1, 1, 1 }));
+        }
+        public bool Equal(byte[] firstByte, byte[] secondByte)
+        {
+            if (!LessThan(secondByte, firstByte) && !LessThan(firstByte, secondByte))
+                return true;
+            return false;
+        }
+
 
 }
 
