@@ -224,6 +224,32 @@ namespace BaseTwoOperationsProblem
             }
             return result ;
         }
+        public byte[] Multiplier(byte[] firstByte, byte[] secondByte)
+        {
+            byte[] result = new byte[firstByte.Length];
+            return result;
+        }
+        public byte[] Division(byte[] firstByte , byte[] secondByte)
+        {
+            byte[] result = new byte[firstByte.Length];
+            return result;
+        }
+        [TestMethod]
+        public void LessThanTest()
+        {
+            Assert.IsTrue(LessThan(new byte[] {1,1,1},new byte[] { 1 }));
+        }
+        public bool LessThan(byte[] firstByte , byte[] secondByte)
+        {
+            byte result = (byte)Math.Max(firstByte.Length, secondByte.Length);
+            for (int i = result -1; i>=0; i--)
+                if(GetPosition(firstByte,i) != (GetPosition(secondByte, i)))
+                {
+                    return (((GetPosition(secondByte, i) < (GetPosition(firstByte, i)))));
+                    
+                }
+            return false;
+        }
     }
 
 }
