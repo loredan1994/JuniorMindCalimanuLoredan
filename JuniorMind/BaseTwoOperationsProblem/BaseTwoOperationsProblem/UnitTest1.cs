@@ -7,7 +7,7 @@ namespace BaseTwoOperationsProblem
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ConversionFirstByteTest()
         {
             CollectionAssert.AreEqual(new byte[] { 1, 0 }, ToBinary(2));
         }
