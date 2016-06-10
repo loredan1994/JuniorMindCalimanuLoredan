@@ -250,6 +250,15 @@ namespace BaseTwoOperationsProblem
                 }
             return false;
         }
+        [TestMethod]
+        public void GratherThanTest()
+        {
+            Assert.IsTrue(GraterThan(new byte[] { 1, 1, 1 }, new byte[] { 1 }));
+        }
+        public bool GraterThan(byte[] firstbyte , byte[] secondByte)
+        {
+            return LessThan(firstbyte, secondByte);
+        }
     }
 
 }
