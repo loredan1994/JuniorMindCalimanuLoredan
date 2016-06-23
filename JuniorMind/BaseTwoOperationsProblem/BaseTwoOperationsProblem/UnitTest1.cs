@@ -227,7 +227,16 @@ namespace BaseTwoOperationsProblem
         public byte[] Multiplier(byte[] firstByte, byte[] secondByte)
         {
             byte[] result = new byte[firstByte.Length];
+            while (NotEqual(firstByte, new byte[] { 0 }))
+            {
+                result = Adder(result, secondByte);
+                firstByte = Substraction(firstByte, new byte[] { 1 });
+            }
             return result;
+        }
+        [TestMethod]
+        public void MultiplierTest()
+        {
         }
         public byte[] Division(byte[] firstByte , byte[] secondByte)
         {
