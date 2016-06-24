@@ -79,12 +79,12 @@ namespace BaseTwoOperationsProblem
         [TestMethod]
         public void AdderTestBaseTwo()
         {
-            CollectionAssert.AreEqual(ToBinary(50+3), Adder(ToBinary(50), ToBinary(3)));
+            CollectionAssert.AreEqual(ToAnyBase(50+3,2), Adder(ToAnyBase(50,2), ToAnyBase(3,2),2));
         }
         [TestMethod]
         public void SubstractionBaseTwo()
         {
-            CollectionAssert.AreEqual(ToBinary(50-3), Substraction(ToBinary(50), ToBinary(3)));
+            CollectionAssert.AreEqual(ToAnyBase(50-3,2), Substraction(ToAnyBase(50,2), ToAnyBase(3,2),2));
         }
         public byte[] ToBinary(int number)
         {
@@ -193,15 +193,15 @@ namespace BaseTwoOperationsProblem
             }
             return InverseBytes(bytes);
         }
-        public byte[] Adder(byte[] firstByte, byte[] secondByte)
+        public byte[] Adder(byte[] firstByte, byte[] secondByte, int baseOfConversion)
         {
             byte[] result = new byte[Math.Max(firstByte.Length, secondByte.Length)];
             int remainer = 0;
             for (int i = 0; i< result.Length; i++)
             {
                 int keep = GetPosition(firstByte, i) + GetPosition(secondByte, i) + remainer;
-                result[result.Length - 1 - i] = (byte)(keep % 2);
-                remainer = keep / 2;
+                result[result.Length - 1 - i] = (byte)(keep % baseOfConversion);
+                remainer = keep / baseOfConversion;
             }
             if (remainer != 0)
             {
@@ -212,36 +212,50 @@ namespace BaseTwoOperationsProblem
             }
             return result;
         }
-        public byte[] Substraction(byte[] firstByte,byte[] secondByte)
+        public byte[] Substraction(byte[] firstByte,byte[] secondByte, int baseOfConversion)
         {
             byte[] result = new byte[firstByte.Length];
             int remainer = 0;
             for (int i =0; i <result.Length; i++)
             {
                 int keep = ( 2 + (GetPosition(firstByte, i) - GetPosition(secondByte, i) - remainer));
-                result[result.Length - 1 - i] = (byte)(keep % 2);
+                result[result.Length - 1 - i] = (byte)(keep % baseOfConversion);
                 remainer = (keep < 2) ? (byte)1 : (byte)0;
             }
             return result ;
         }
-        public byte[] Multiplier(byte[] firstByte, byte[] secondByte)
+        public byte[] Multiplier(byte[] firstByte, byte[] secondByte, int baseOfConversion)
         {
             byte[] result = new byte[firstByte.Length];
             while (NotEqual(firstByte, new byte[] { 0 }))
             {
-                result = Adder(result, secondByte);
-                firstByte = Substraction(firstByte, new byte[] { 1 });
+                result = Adder(result, secondByte, baseOfConversion);
+                firstByte = Substraction(firstByte, new byte[] { 1 }, baseOfConversion);
             }
             return result;
         }
         [TestMethod]
         public void MultiplierTest()
         {
+            CollectionAssert.AreEqual(ToAnyBase((8 * 16),2), Multiplier(ToAnyBase(8,2), ToAnyBase(16,2),2));
         }
-        public byte[] Division(byte[] firstByte , byte[] secondByte)
+        [TestMethod]
+        public void DivisionTest()
         {
-            byte[] result = new byte[firstByte.Length];
-            return result;
+            CollectionAssert.AreEqual(ToAnyBase((8 / 2),2), Division(ToAnyBase(8,2), ToAnyBase(2,2),2));
+        }
+        public byte[] Division(byte[] divident , byte[] divider, int baseOfConversion)
+        {
+            {
+                byte[] result = new byte[Math.Min(divident.Length, divider.Length)];
+                while (LessThan(divident, divider) || Equal(divident, divider))
+                {
+                    divident = Substraction(divident, divider, baseOfConversion);
+                    result = Adder(result, new byte[] { 1 }, baseOfConversion);
+                    
+                }
+                return result;
+            }
         }
         [TestMethod]
         public void LessThanTest()
