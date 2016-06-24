@@ -224,12 +224,12 @@ namespace BaseTwoOperationsProblem
             }
             return result ;
         }
-        public byte[] Multiplier(byte[] firstByte, byte[] secondByte, int baseOfConversion)
+        public byte[] Multiplier(byte[] firstByte, byte[] multiplier, int baseOfConversion)
         {
             byte[] result = new byte[firstByte.Length];
             while (NotEqual(firstByte, new byte[] { 0 }))
             {
-                result = Adder(result, secondByte, baseOfConversion);
+                result = Adder(result, multiplier, baseOfConversion);
                 firstByte = Substraction(firstByte, new byte[] { 1 }, baseOfConversion);
             }
             return result;
