@@ -62,6 +62,25 @@ namespace ShopingBasket
             var shopingproducts = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("LaysChips", 7), new ShopingBasket("CoCaCola", 8) };
             Assert.AreEqual("EnergyDrink", CheapestProduct(shopingproducts));
         }
+
+        private int MostExpensiveProduct(ShopingBasket[] shopingBasket)
+        {
+            decimal mostExpensive = 0;
+            int position = 0;
+            for (int i = 0; i < shopingBasket.Length; i++)
+                if (shopingBasket[i].priceOfProduct > mostExpensive)
+                {
+                   mostExpensive = shopingBasket[i].priceOfProduct;
+                    position = i;
+                }
+            return position;
+        }
+        [TestMethod]
+        public void TestMostExpensive()
+        {
+            var shopingproducts = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("LaysChips", 7), new ShopingBasket("CoCaCola", 8) };
+            Assert.AreEqual(2, MostExpensiveProduct(shopingproducts));
+        }
         public string HightestProduct(ShopingBasket[] shopingBasket)
         {
             ShopingBasket chepestProduct = shopingBasket[0];
