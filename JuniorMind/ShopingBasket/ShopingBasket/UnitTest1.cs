@@ -39,11 +39,46 @@ namespace ShopingBasket
         [TestMethod]
         public void TestAverage()
         {
-            var shopingproducts = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("LaysChips", 6), new ShopingBasket("CoCaCola", 6) };
-            Assert.AreEqual(6, AverageProducts(shopingproducts));
+            var shopingproducts = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("LaysChips", 7), new ShopingBasket("CoCaCola", 8) };
+            Assert.AreEqual(7, AverageProducts(shopingproducts));
             var shopingproduct = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 9), new ShopingBasket("LaysChips", 10), new ShopingBasket("CoCaCola", 11) };
             Assert.AreEqual(10, AverageProducts(shopingproduct));
         }
-
+        public string CheapestProduct(ShopingBasket[] shopingBasket)
+        {
+            ShopingBasket chepestProduct = shopingBasket[0];
+            int position = 0;
+            for (int i = 1; i < shopingBasket.Length; i++)
+                if (shopingBasket[i].priceOfProduct < chepestProduct.priceOfProduct)
+                {
+                    chepestProduct = shopingBasket[i];
+                    position = i;
+                }
+            return shopingBasket[position].nameOfProduct;
+        }
+        [TestMethod]
+        public void TestCheapestProduct()
+        {
+            var shopingproducts = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("LaysChips", 7), new ShopingBasket("CoCaCola", 8) };
+            Assert.AreEqual("EnergyDrink", CheapestProduct(shopingproducts));
+        }
+        public string HightestProduct(ShopingBasket[] shopingBasket)
+        {
+            ShopingBasket chepestProduct = shopingBasket[0];
+            int position = 0;
+            for (int i = 1; i < shopingBasket.Length; i++)
+                if (shopingBasket[i].priceOfProduct > chepestProduct.priceOfProduct)
+                {
+                    chepestProduct = shopingBasket[i];
+                    position = i;
+                }
+            return shopingBasket[position].nameOfProduct;
+        }
+        [TestMethod]
+        public void TestHighestProduct()
+        {
+            var shopingproducts = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("LaysChips", 7), new ShopingBasket("CoCaCola", 8) };
+            Assert.AreEqual("CoCaCola", HightestProduct(shopingproducts));
+        }
     }
 }
