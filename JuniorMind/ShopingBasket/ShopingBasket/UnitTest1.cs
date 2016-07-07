@@ -112,5 +112,23 @@ namespace ShopingBasket
             var shopingBasketExpected = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("Lays", 6)};
             CollectionAssert.AreEqual(shopingBasketExpected, AddNewProduct(shopingBasket, shopingBasketExpected[shopingBasketExpected.Length - 1]));
         }
+        public ShopingBasket[] EliminateTheHighestPrice(ShopingBasket[] shopingBasket)
+        {
+            int expensiveOne = MostExpensiveProduct(shopingBasket)+1;
+            for (int i = expensiveOne - 1 ; i < shopingBasket.Length-1; i++)
+            
+                shopingBasket[i] = shopingBasket[i+1];
+                Array.Resize(ref shopingBasket, shopingBasket.Length - 1);
+            
+            return shopingBasket;
+        }
+        [TestMethod]
+        public void TestForElimination()
+        {
+
+            var product = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("Lays", 7), new ShopingBasket("CoCaCola", 8) };
+            var expected = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("Lays", 7) };
+            CollectionAssert.AreEqual(expected, EliminateTheHighestPrice(product));
+        }
     }
 }
