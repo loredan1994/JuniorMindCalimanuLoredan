@@ -99,5 +99,18 @@ namespace ShopingBasket
             var shopingproducts = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("LaysChips", 7), new ShopingBasket("CoCaCola", 8) };
             Assert.AreEqual("CoCaCola", HightestProduct(shopingproducts));
         }
+        public ShopingBasket[] AddNewProduct(ShopingBasket[] shopingBasket, ShopingBasket addProduct)
+        {
+            Array.Resize(ref shopingBasket, shopingBasket.Length + 1);
+            shopingBasket[shopingBasket.Length - 1] = addProduct;
+            return shopingBasket;
+        }
+        [TestMethod]
+        public void TestAddNewProduct()
+        {
+            var shopingBasket = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6)};
+            var shopingBasketExpected = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("Lays", 6)};
+            CollectionAssert.AreEqual(shopingBasketExpected, AddNewProduct(shopingBasket, shopingBasketExpected[shopingBasketExpected.Length - 1]));
+        }
     }
 }
