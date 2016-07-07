@@ -6,10 +6,12 @@ namespace ShopingBasket
     [TestClass]
     public class UnitTest1
     {
+        
         [TestMethod]
-        public void TestMethod1()
+        public void TestTotalPrice()
         {
-         
+            var shopingproducts = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 8 ), new ShopingBasket("LaysChips", 5), new ShopingBasket("CoCaCola", 6) };
+            Assert.AreEqual(19, TotalPrice(shopingproducts));
         }
         public struct ShopingBasket
         {
@@ -21,6 +23,26 @@ namespace ShopingBasket
                 this.priceOfProduct = priceOfProduct;
             }
 
+        }
+        public decimal TotalPrice(ShopingBasket[] shopingBasket)
+        {
+            decimal totalPrice = 0;
+            for (int i = 0; i < shopingBasket.Length; i++)
+                totalPrice += shopingBasket[i].priceOfProduct;
+            return totalPrice;
+        }
+        public decimal AverageProducts(ShopingBasket[] shopingBasket)
+        {
+            int numberofProducts = shopingBasket.Length;
+            return TotalPrice(shopingBasket) / numberofProducts;
+        }
+        [TestMethod]
+        public void TestAverage()
+        {
+            var shopingproducts = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 6), new ShopingBasket("LaysChips", 6), new ShopingBasket("CoCaCola", 6) };
+            Assert.AreEqual(6, AverageProducts(shopingproducts));
+            var shopingproduct = new ShopingBasket[] { new ShopingBasket("EnergyDrink", 9), new ShopingBasket("LaysChips", 10), new ShopingBasket("CoCaCola", 11) };
+            Assert.AreEqual(10, AverageProducts(shopingproduct));
         }
 
     }
