@@ -38,6 +38,16 @@ namespace Password
         {
             return string.Empty;
         }
+        public char GenerateCharacter( char minValue, char maxValue)
+        {
+            return (char)password.Next(minValue, maxValue);
+        }
+        public char GenerateSymbol ()
+        {
+            string symbol = "!@#$%^&*()-+=[]';:'><.?/";
+            int random = password.Next(0, symbol.Length - 1);
+            return symbol[random];
+        }
     }
 }
 
