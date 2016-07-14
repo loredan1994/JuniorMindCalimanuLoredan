@@ -33,6 +33,11 @@ namespace Password
 
             }
         }
+        static Random password = new Random();
+        public string PasswordGenerator(Password password)
+        {
+            return string.Empty;
+        }
     }
 }
 
