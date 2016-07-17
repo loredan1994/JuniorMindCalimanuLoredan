@@ -40,7 +40,7 @@ namespace Password
         }
         public char GenerateCharacter( char minValue, char maxValue)
         {
-            return (char)password.Next(minValue, maxValue);
+            return (char)password.Next(minValue, maxValue+1);
         }
         public char GenerateSymbol ()
         {
