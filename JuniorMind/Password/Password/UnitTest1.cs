@@ -10,7 +10,9 @@ namespace Password
         public void TestPassword()
         {
             Password password = new Password(40, 12, 5, 3, 20, true, false);
+            Password passwordtest = new Password(40, 12, 5, 3, 20, false, false);
             string Password = PasswordGenerator(password);
+            string Passwordtest = PasswordGenerator(passwordtest);
         }
         public struct Password
         {
