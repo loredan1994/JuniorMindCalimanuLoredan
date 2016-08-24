@@ -13,8 +13,10 @@ namespace Cyclometer_rework
         private string name;
         private int cyclometer;
         private int noOfRotations;
-        public Cyclist(string name, int diameter, int noOfRotations)
+        private string cyclists;
+        public Cyclist(string name, int diameter, int noOfRotations, int cyclist)
         {
+            this.cyclists = cyclists ;
             this.name = name;
             this.diameter = diameter;
             this.noOfRotations = noOfRotations;
@@ -28,7 +30,7 @@ namespace Cyclometer_rework
 
             return Math.Round(distance, 2);
         }
-        private double ComputeTotalDistance(Cyclist[] cyclists)
+        private double ComputeTotalDistance(Cyclist cyclists)
         {
             double distance = 0;
             for (int i = 0; i < cyclists.Length; i++)
