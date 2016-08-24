@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP Project Cyclometer", "OOP Project Cyclometer\OOP Project Cyclometer.csproj", "{1E47641D-1FCB-4E08-9804-FC52DB0CD28C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyclometer rework", "Cyclometer rework\Cyclometer rework.csproj", "{745B251E-2A81-4D4D-85DE-C25A911DD23D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1E47641D-1FCB-4E08-9804-FC52DB0CD28C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E47641D-1FCB-4E08-9804-FC52DB0CD28C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E47641D-1FCB-4E08-9804-FC52DB0CD28C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E47641D-1FCB-4E08-9804-FC52DB0CD28C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745B251E-2A81-4D4D-85DE-C25A911DD23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745B251E-2A81-4D4D-85DE-C25A911DD23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745B251E-2A81-4D4D-85DE-C25A911DD23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745B251E-2A81-4D4D-85DE-C25A911DD23D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
