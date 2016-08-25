@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Cyclometer rework")]
+[assembly: AssemblyTitle("Cyclometer oop")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Cyclometer rework")]
+[assembly: AssemblyProduct("Cyclometer oop")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("745b251e-2a81-4d4d-85de-c25a911dd23d")]
+[assembly: Guid("59a86844-b77f-48c4-82a8-2cec9a3052bc")]
 
 // Version information for an assembly consists of the following four values:
 //

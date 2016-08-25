@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{745B251E-2A81-4D4D-85DE-C25A911DD23D}</ProjectGuid>
+    <ProjectGuid>{59A86844-B77F-48C4-82A8-2CEC9A3052BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cyclometer_rework</RootNamespace>
-    <AssemblyName>Cyclometer rework</AssemblyName>
+    <RootNamespace>Cyclometer_oop</RootNamespace>
+    <AssemblyName>Cyclometer oop</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,10 +50,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Cyclist.cs" />
     <Compile Include="Cyclometer.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Cyclist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
