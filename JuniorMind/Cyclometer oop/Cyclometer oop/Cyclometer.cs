@@ -22,5 +22,14 @@ namespace Cyclometer_oop
                 distance += cyclists[i].CalculateDistanceForACyclist();
             return Math.Round(distance, 2);
         }
+        public double CalculateMaximumSpeedOfOneCyclist()
+        {
+            double fastestcyclist = new double();
+            for (int i = 0; i < cyclists.Length; i++)
+            {
+                fastestcyclist = fastestcyclist > cyclists[i].CalculateAverageSpeed() ? fastestcyclist : cyclists[i];
+            }
+            return fastestcyclist;
+        }
     }
 }
