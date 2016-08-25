@@ -24,10 +24,10 @@ namespace Cyclometer_oop
         }
         public double CalculateMaximumSpeedOfOneCyclist()
         {
-            double fastestcyclist = new double();
+            int[] fastestcyclist = new int[0];
             for (int i = 0; i < cyclists.Length; i++)
             {
-                fastestcyclist = fastestcyclist > cyclists[i].CalculateAverageSpeed() ? fastestcyclist : cyclists[i];
+              fastestcyclist = fastestcyclist[0].CalculateAverageSpeed() > cyclists[i].CalculateAverageSpeed() ? fastestcyclist : cyclists[i];
             }
             return fastestcyclist;
         }
