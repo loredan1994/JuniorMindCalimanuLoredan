@@ -19,7 +19,7 @@ namespace Cyclometer_oop
             this.noOfRotations = noOfRotations;
         }
 
-        public double CalculateDistanceForACyclist( )
+        public double GetDistanceForACyclist( )
         {
             double totalNoOfRot = 0;
             for (int i = 0; i < noOfRotations.Length; i++)
@@ -29,9 +29,9 @@ namespace Cyclometer_oop
             return totalNoOfRot;
         }
 
-        public double CalculateAverageSpeed()
+        public double GetAverageSpeed()
         {
-            return Math.Round(CalculateDistanceForACyclist() / noOfRotations.Length, 2);
+            return Math.Round(GetDistanceForACyclist() / noOfRotations.Length, 2);
         }
         
         

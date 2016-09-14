@@ -15,21 +15,23 @@ namespace Cyclometer_oop
             this.cyclists = cyclists;
         }
 
-        public double ComputeTotalDistance()
+        public double GetTotalDistance()
         {
             double distance = 0;
             for (int i = 0; i <cyclists.Length; i++)
-                distance += cyclists[i].CalculateDistanceForACyclist();
+                distance += cyclists[i].GetDistanceForACyclist();
             return Math.Round(distance, 2);
         }
-        public double CalculateMaximumSpeedOfOneCyclist()
+        public double GetMaximumSpeedOfOneCyclist()
         {
-            int[] fastestcyclist = new int[0];
-            for (int i = 0; i < cyclists.Length; i++)
+            double fastestSpeed = cyclists[0].GetAverageSpeed();
+            for (int i = 1; i < cyclists.Length; i++)
             {
-              fastestcyclist = fastestcyclist[0].CalculateAverageSpeed() > cyclists[i].CalculateAverageSpeed() ? fastestcyclist : cyclists[i];
+                double currentAverageSpeed = cyclists[i].GetAverageSpeed();
+                if (fastestSpeed < currentAverageSpeed)
+                    fastestSpeed = currentAverageSpeed;
             }
-            return fastestcyclist;
+            return fastestSpeed;
         }
     }
 }
