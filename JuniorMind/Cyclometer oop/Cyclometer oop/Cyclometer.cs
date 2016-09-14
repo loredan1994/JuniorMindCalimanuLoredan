@@ -15,27 +15,6 @@ namespace Cyclometer_oop
             this.cyclists = cyclists;
             
         }
-        public struct Performances
-        {
-            public int second;
-            public int rotations;
-            public Performances(int second, int rotations)
-            {
-                this.second = second;
-                this.rotations = rotations;
-            }
-        }
-        public struct NameSecond
-        {
-            public string name;
-            public int second;
-
-            public NameSecond(string name, int second)
-            {
-                this.name = name;
-                this.second = second;
-            }
-        }
 
         public double GetTotalDistance()
         {
