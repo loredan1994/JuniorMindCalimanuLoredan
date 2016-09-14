@@ -10,9 +10,31 @@ namespace Cyclometer_oop
     {
         private Cyclist[] cyclists;
 
-        public Cyclometer(Cyclist[] cyclists)
+        public Cyclometer(Cyclist[] cyclists )
         {
             this.cyclists = cyclists;
+            
+        }
+        public struct Performances
+        {
+            public int second;
+            public int rotations;
+            public Performances(int second, int rotations)
+            {
+                this.second = second;
+                this.rotations = rotations;
+            }
+        }
+        public struct NameSecond
+        {
+            public string name;
+            public int second;
+
+            public NameSecond(string name, int second)
+            {
+                this.name = name;
+                this.second = second;
+            }
         }
 
         public double GetTotalDistance()
@@ -33,5 +55,23 @@ namespace Cyclometer_oop
             }
             return fastestSpeed;
         }
+        public double GetFastestAverageSpeed()
+        {
+            double bestAverageSpeed = cyclists[0].GetDistanceForACyclist() / GetMaximumSpeedOfOneCyclist();
+            double cyclistSpeed = 0;
+            double speedster = GetMaximumSpeedOfOneCyclist(); 
+            for (int i = 1; i < cyclists.Length; i++)
+            {
+                cyclistSpeed = cyclists[0].GetDistanceForACyclist() / GetMaximumSpeedOfOneCyclist();
+                if (cyclistSpeed > bestAverageSpeed)
+                {
+                    bestAverageSpeed = cyclistSpeed;
+                }
+            }
+            return bestAverageSpeed;
+
+        }
+        
+        }
+
     }
-}

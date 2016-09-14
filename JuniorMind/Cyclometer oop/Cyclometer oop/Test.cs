@@ -36,5 +36,13 @@ namespace Cyclometer_oop
             Assert.AreEqual(29.32, cyclometer.GetMaximumSpeedOfOneCyclist());
 
         }
+        [TestMethod]
+        public void GetBestAverageSpeed()
+        {
+            var andrei = new Cyclist("A", 4, new int[] { 1, 3, 3, });
+            var mihai = new Cyclist("M", 4, new int[] { 1, 2, 3, });
+            var cyclometer = new Cyclometer(new Cyclist[] { andrei, mihai });
+            Assert.AreEqual(3.00, cyclometer.GetFastestAverageSpeed(), 0.001);
+        }
     }
 }

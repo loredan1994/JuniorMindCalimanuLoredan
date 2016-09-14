@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cyclometer_oop
 {
-    class Cyclist
+    class Cyclist 
     {
         private string name;
         private int diameter;
@@ -19,12 +19,12 @@ namespace Cyclometer_oop
             this.noOfRotations = noOfRotations;
         }
 
-        public double GetDistanceForACyclist( )
+        public double GetDistanceForACyclist()
         {
             double totalNoOfRot = 0;
             for (int i = 0; i < noOfRotations.Length; i++)
             {
-                totalNoOfRot += diameter* Math.PI *noOfRotations[i];
+                totalNoOfRot += diameter * Math.PI * noOfRotations[i];
             }
             return totalNoOfRot;
         }
@@ -34,8 +34,8 @@ namespace Cyclometer_oop
             return Math.Round(GetDistanceForACyclist() / noOfRotations.Length, 2);
         }
         
-        
-        
+
     }
-}
+    }
+
 
