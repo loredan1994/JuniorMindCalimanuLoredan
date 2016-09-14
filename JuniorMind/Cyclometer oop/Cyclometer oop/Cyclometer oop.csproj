@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Cyclometer.cs" />
     <Compile Include="Cyclist.cs" />
+    <Compile Include="NameSecond.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.cs" />
   </ItemGroup>
