@@ -44,5 +44,25 @@ namespace Cyclometer_oop
             var cyclometer = new Cyclometer(new Cyclist[] { andrei, mihai });
             Assert.AreEqual(3.00, cyclometer.GetFastestAverageSpeed(), 0.001);
         }
+        [TestMethod]
+        public void CyclistWithHighestSpeedAndSecond()
+        {
+            var andrei = new Cyclist("A", 3, new int[] { 2, 4, 4 });
+            var bogdan = new Cyclist("B", 5, new int[] { 1, 3, 2 });
+            var daniel = new Cyclist("D", 4, new int[] { 1, 3, 2 });
+            var mihai = new Cyclist("M", 3, new int[] { 2, 4, 3 });
+
+            var cyclometer = new Cyclometer(new Cyclist[] { andrei, bogdan, daniel, mihai });
+
+            var fastestCyclist = cyclometer.GetCyclistWithHighestSpeed();
+
+            Assert.AreEqual(bogdan, fastestCyclist);
+
+            Assert.AreEqual(15, fastestCyclist.GetMaximumSpeed());
+
+            int maximumSpeed = fastestCyclist.GetMaximumSpeed();
+
+            Assert.AreEqual(2, fastestCyclist.GetSecondInWhichTheSpeedWasReached(maximumSpeed));
+        }
     }
 }

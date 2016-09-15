@@ -33,7 +33,28 @@ namespace Cyclometer_oop
         {
             return Math.Round(GetDistanceForACyclist() / noOfRotations.Length, 2);
         }
-        
+        public int GetMaximumSpeed()
+        {
+            int maximumRotations = noOfRotations[0];
+            for (int i = 1; i < noOfRotations.Length; i++)
+                if (maximumRotations < noOfRotations[i])
+                    maximumRotations = noOfRotations[i];
+
+            return maximumRotations * diameter;
+        }
+        public int GetSecondInWhichTheSpeedWasReached(int speed)
+        {
+            int numberOfRotations = speed / diameter;
+
+            int position = 1;  
+
+            for (int i = 1; i < noOfRotations.Length; i++)
+                if (noOfRotations[i] == numberOfRotations)
+                    position = i + 1;
+
+            return position;
+        }
+
 
     }
     }

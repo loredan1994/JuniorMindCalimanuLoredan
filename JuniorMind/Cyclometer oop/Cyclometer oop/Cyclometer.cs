@@ -50,7 +50,17 @@ namespace Cyclometer_oop
             return bestAverageSpeed;
 
         }
-        
+        public Cyclist GetCyclistWithHighestSpeed()
+        {
+            Cyclist fastestCyclist = cyclists[0];
+
+            for (int i = 1; i < cyclists.Length; i++)
+                if (fastestCyclist.GetMaximumSpeed() < cyclists[i].GetMaximumSpeed())
+                    fastestCyclist = cyclists[i];
+            return fastestCyclist;
+
         }
+
+    }
 
     }
