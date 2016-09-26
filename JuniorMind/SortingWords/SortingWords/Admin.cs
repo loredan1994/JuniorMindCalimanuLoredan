@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SortingWords
 {
-    class Admin : IEnumerator
+    public class Admin : IEnumerator
     {
         private WordSorting[] words = new WordSorting[0];
         private int position = -1;
@@ -51,6 +51,10 @@ namespace SortingWords
         {
             position = -1;
         }
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
         object IEnumerator.Current
         {
             get
@@ -73,6 +77,6 @@ namespace SortingWords
             }
         }
     }
-        }
+}
     
 
