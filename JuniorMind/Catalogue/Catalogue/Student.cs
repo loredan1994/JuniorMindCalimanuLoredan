@@ -2,15 +2,15 @@
 {
     public class Student
     {
-        private string name;
-        private int[] grades;
+        public string FirstName { get; set; }
 
-        public Student(string name, int[] grades)
+        public string LastName { get; set; }
+
+        public int YearOfStudy { get; set; }
+
+        public override string ToString()
         {
-            this.name = name;
-            this.grades = grades;
+            return string.Format("{0} {1}, Year: {2}", FirstName, LastName, YearOfStudy.ToString());
         }
-
-
     }
 }
