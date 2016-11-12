@@ -7,26 +7,32 @@ using System.Threading.Tasks;
 
 namespace Elections
 {
-    class SortedCandidates : IEnumerable<Candidate>
+    class SortedPollingStation : IEnumerable<Candidate>
     {
         private Candidate[] candidates;
 
-        public SortedCandidates(Candidate[] candidates)
+        public SortedPollingStation(Candidate[] candidates)
         {
             this.candidates = candidates;
+            SortCandidatesAlphabetically();
         }
 
-        public Candidate[] SortCandidates()
+        public Candidate[] Candidates
+        {
+            get { return candidates; }
+            set { candidates = value; }
+        }
+
+        private void SortCandidatesAlphabetically()
         {
             for (int i = 0; i < candidates.Length - 1; ++i)
             {
                 for (int j = i + 1; j > 0; --j)
                 {
-                    if (candidates[j - 1].CompareToByVotes(candidates[j]) < 0)
+                    if (candidates[j - 1].CompareTo(candidates[j]) > 0)
                         Swap(ref candidates[j - 1], ref candidates[j]);
                 }
             }
-            return candidates;
         }
 
         private void Swap<T>(ref T a, ref T b)
@@ -47,7 +53,6 @@ namespace Elections
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
-
+        }     
     }
 }

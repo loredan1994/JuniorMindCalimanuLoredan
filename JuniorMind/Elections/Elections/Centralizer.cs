@@ -23,20 +23,20 @@ namespace Elections
                 pollingStation.SortCandidatesAlphabetically();
             }
 
-            Candidate[] list = new Candidate[pollingStations[0].Candidates.Length];
-            pollingStations[0].GetCandidatesList(list);
-            AddCandidatesNames(list);
+            Candidate[] finalList = new Candidate[pollingStations[0].Candidates.Length];
+            pollingStations[0].InitializeCandidatesList(finalList);
+            AddCandidatesNames(finalList);
             for (int i = 0; i < pollingStations.Length; i++)
             {
                 int k = 0;
                 foreach (Candidate candidate in pollingStations[i].Candidates)
                 {
-                    list[k].NumberOfVotes += candidate.GetNumberOfVotes();
+                    finalList[k].NumberOfVotes += candidate.GetNumberOfVotes();
                     k++;
                 }
             }
 
-            return new PollingStation(list).SortCandidatesAfterNumberOfVotes();
+            return new PollingStation(finalList).SortCandidatesAfterNumberOfVotes();
         }
 
         private void AddCandidatesNames(Candidate[] candidatesList)
@@ -61,5 +61,6 @@ namespace Elections
         {
             return GetEnumerator();
         }
+
     }
 }

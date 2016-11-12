@@ -113,7 +113,7 @@ namespace Catalogue
 
             foreach (var result in status.Results)
                 sum += result.Grade;
-            return sum / 3;
+            return sum / Enum.GetValues(typeof(SchoolObject)).Length;
 
 
         }

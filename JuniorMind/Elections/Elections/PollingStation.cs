@@ -24,9 +24,9 @@ namespace Elections
 
         public void SortCandidatesAlphabetically()
         {
-            for(int i = 0; i < candidates.Length - 1; i++)
+            for (int i = 0; i < candidates.Length - 1; i++)
             {
-                for(int j = i + 1; j > 0; j--)
+                for (int j = i + 1; j > 0; j--)
                 {
                     if (candidates[j - 1].CompareTo(candidates[j]) > 0)
                         Swap(ref candidates[j - 1], ref candidates[j]);
@@ -36,9 +36,9 @@ namespace Elections
 
         public PollingStation SortCandidatesAfterNumberOfVotes()
         {
-            for (int i = 0; i < candidates.Length - 1; i++)
+            for (int i = 0; i < candidates.Length - 1; ++i)
             {
-                for (int j = i + 1; j > 0; j--)
+                for (int j = i + 1; j > 0; --j)
                 {
                     if (candidates[j - 1].CompareToByVotes(candidates[j]) < 0)
                         Swap(ref candidates[j - 1], ref candidates[j]);
@@ -54,12 +54,11 @@ namespace Elections
             b = aux;
         }
 
-        public void GetCandidatesList(Candidate[] candidates)
+        public void InitializeCandidatesList(Candidate[] candidates)
         {
             for (int i = 0; i < candidates.Length; i++)
                 candidates[i] = new Candidate("", 0);
         }
-
         public override bool Equals(Object obj)
         {
             if (!(obj is PollingStation))
