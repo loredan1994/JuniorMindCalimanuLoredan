@@ -8,8 +8,11 @@ namespace Elections
         [TestMethod]
         public void AlphabeticalSort()
         {
-            var candidates = new PollingStation( new Candidate[] { new Candidate("PNL", 3), new Candidate("PSD", 1), new Candidate("USR", 7)  });
-            var expectedOrder = new PollingStation(new Candidate[] { new Candidate("PNL", 3), new Candidate("PSD", 1), new Candidate("USR", 7) });
+            var USR = new Candidate("USR", 7);
+            var PNL = new Candidate("PNL", 3);
+            var PSD = new Candidate("PSD", 1);
+            var candidates = new PollingStation(new Candidate[] { USR, PNL, PSD });
+            var expectedOrder = new PollingStation(new Candidate[] { PNL, PSD, USR });
             Assert.AreEqual(expectedOrder, candidates);
         }
 
