@@ -11,8 +11,12 @@ namespace Elections
             var USR = new Candidate("USR", 7);
             var PNL = new Candidate("PNL", 3);
             var PSD = new Candidate("PSD", 1);
+
             var candidates = new PollingStation(new Candidate[] { USR, PNL, PSD });
             var expectedOrder = new PollingStation(new Candidate[] { PNL, PSD, USR });
+
+            candidates.SortCandidatesAlphabetically();
+
             Assert.AreEqual(expectedOrder, candidates);
         }
 
